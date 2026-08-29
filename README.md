@@ -97,10 +97,11 @@ published to GitHub Pages via GitHub Actions.
 
 - On every push to `master`, `.github/workflows/deploy.yml` builds the site and
   uploads the `out/` folder to GitHub Pages.
-- `next.config.ts` sets `basePath` and `assetPrefix` to `/neighborhood-hacks`
-  automatically when the `GITHUB_PAGES=true` env var is present (it is set in the
-  workflow). This makes all asset and route links resolve correctly under the
-  project subpath `https://<user>.github.io/neighborhood-hacks/`.
+- The production workflow sets `CUSTOM_DOMAIN=true`, so the exported site uses
+  root-relative routes for `https://neighborhoodhacks.org/`.
+- For a GitHub Pages project URL without a custom domain, set
+  `GITHUB_PAGES=true` without `CUSTOM_DOMAIN`; `next.config.ts` will then use the
+  `/neighborhood-hacks` project subpath automatically.
 
 ### Steps
 
@@ -111,15 +112,18 @@ published to GitHub Pages via GitHub Actions.
    select **"GitHub Actions"**.
 3. Push to `master` (or run the workflow manually under **Actions → Deploy to
    GitHub Pages**).
-4. Your site will be live at
-   `https://<user>.github.io/neighborhood-hacks/`.
+4. The production site will be live at `https://neighborhoodhacks.org/` once
+   the repository custom domain and DNS records are configured.
 
-### Custom Domain (Optional)
+### Custom Domain
 
-1. In the repo, go to **Settings → Pages → Custom domain** and enter your domain.
-2. Update your DNS records as instructed by GitHub (SSL is automatic).
-3. If serving from the domain root (not a subpath), set `basePath`/`assetPrefix`
-   to empty in `next.config.ts`.
+1. Verify `neighborhoodhacks.org` in the owner account's GitHub Pages settings.
+2. In the repo, go to **Settings → Pages → Custom domain**, enter
+   `neighborhoodhacks.org`, and save.
+3. Point the apex DNS records to GitHub Pages and point `www` to
+   `kl1226.github.io`.
+4. Keep `CUSTOM_DOMAIN=true` in the deployment workflow so routes and assets are
+   exported for the domain root.
 
 ### Local static preview
 
