@@ -1,3 +1,12 @@
+import { createPageMetadata } from "@/lib/seo";
+
+export const metadata = createPageMetadata({
+  title: "About Neighborhood Hacks 2026 | Our Mission",
+  description:
+    "Discover why Neighborhood Hacks helps high school students worldwide turn real community problems into useful technology during a free virtual hackathon.",
+  path: "/about",
+});
+
 export default function About() {
   return (
     <section className="min-h-screen px-4 sm:px-8 pt-24 pb-16">

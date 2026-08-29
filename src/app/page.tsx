@@ -1,8 +1,18 @@
 import Link from "next/link";
+import StructuredData from "@/components/StructuredData";
+import { createPageMetadata, HOME_DESCRIPTION, HOME_TITLE } from "@/lib/seo";
+import { websiteStructuredData } from "@/lib/structured-data";
+
+export const metadata = createPageMetadata({
+  title: HOME_TITLE,
+  description: HOME_DESCRIPTION,
+  path: "/",
+});
 
 export default function Home() {
   return (
     <>
+      <StructuredData data={websiteStructuredData} />
       {/* Hero Section */}
       <section className="min-h-screen flex items-center relative px-4 sm:px-8 pt-20 pb-16">
         {/* Handwritten annotation — top right */}

@@ -1,3 +1,12 @@
+import { createPageMetadata } from "@/lib/seo";
+
+export const metadata = createPageMetadata({
+  title: "Neighborhood Hacks 2026 Official Rules",
+  description:
+    "Review eligibility, registration, teams, submissions, judging, prizes, intellectual property, and conduct rules for Neighborhood Hacks 2026.",
+  path: "/rules",
+});
+
 export default function Rules() {
   return (
     <section className="min-h-screen px-4 sm:px-8 pt-24 pb-16">

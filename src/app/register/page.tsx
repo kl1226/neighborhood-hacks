@@ -1,3 +1,12 @@
+import { createPageMetadata } from "@/lib/seo";
+
+export const metadata = createPageMetadata({
+  title: "Register for Neighborhood Hacks 2026 | Free & Virtual",
+  description:
+    "Register free on Devpost for Neighborhood Hacks 2026, a worldwide virtual hackathon for high school students building solutions to local problems.",
+  path: "/register",
+});
+
 export default function Register() {
   return (
     <section className="min-h-screen px-4 sm:px-8 pt-24 pb-16">

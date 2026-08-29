@@ -3,6 +3,12 @@ import { Space_Grotesk, IBM_Plex_Mono, Caveat } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import {
+  HOME_DESCRIPTION,
+  HOME_TITLE,
+  SITE_NAME,
+  SITE_URL,
+} from "@/lib/seo";
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
@@ -23,9 +29,41 @@ const caveat = Caveat({
 });
 
 export const metadata: Metadata = {
-  title: "Neighborhood Hacks — Build Locally, Share Globally",
-  description:
-    "A global hackathon for high schoolers. Over seven days, students worldwide design and build solutions to challenges in their own communities.",
+  metadataBase: new URL(SITE_URL),
+  applicationName: SITE_NAME,
+  title: {
+    default: HOME_TITLE,
+    template: `%s | ${SITE_NAME}`,
+  },
+  description: HOME_DESCRIPTION,
+  creator: "Neighborhood Hacks",
+  publisher: "Neighborhood Hacks",
+  category: "technology",
+  icons: {
+    icon: "/favicon.ico",
+  },
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    siteName: SITE_NAME,
+    url: `${SITE_URL}/`,
+    title: HOME_TITLE,
+    description: HOME_DESCRIPTION,
+    images: [
+      {
+        url: "/og.png",
+        width: 1200,
+        height: 630,
+        alt: "Neighborhood Hacks 2026 — Build locally, share globally",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: HOME_TITLE,
+    description: HOME_DESCRIPTION,
+    images: ["/og.png"],
+  },
 };
 
 export default function RootLayout({

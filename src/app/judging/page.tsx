@@ -1,3 +1,12 @@
+import { createPageMetadata } from "@/lib/seo";
+
+export const metadata = createPageMetadata({
+  title: "Neighborhood Hacks 2026 Judging Process & Rubric",
+  description:
+    "Learn how submissions advance through screening, initial review, and finals, plus the criteria and weights used to judge Neighborhood Hacks projects.",
+  path: "/judging",
+});
+
 const rounds = [
   {
     round: "1",

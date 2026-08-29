@@ -1,3 +1,12 @@
+import { createPageMetadata } from "@/lib/seo";
+
+export const metadata = createPageMetadata({
+  title: "Neighborhood Hacks 2026 Challenge & Project Tracks",
+  description:
+    "Explore the Neighborhood Hacks challenge and project tracks, including health, sustainability, education, safety, civic connection, and accessibility.",
+  path: "/challenge",
+});
+
 const tracks = [
   {
     num: "01",

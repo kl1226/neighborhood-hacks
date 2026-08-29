@@ -1,3 +1,13 @@
+import { createPageMetadata } from "@/lib/seo";
+
+export const metadata = createPageMetadata({
+  title: "Neighborhood Hacks 2026 Sponsors & Partners",
+  description:
+    "Meet the organizations supporting Neighborhood Hacks 2026 and learn how to help high school students build solutions for their communities.",
+  path: "/sponsors",
+  index: false,
+});
+
 export default function Sponsors() {
   return (
     <section className="min-h-screen px-4 sm:px-8 pt-24 pb-16">

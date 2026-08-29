@@ -1,3 +1,14 @@
+import StructuredData from "@/components/StructuredData";
+import { createPageMetadata } from "@/lib/seo";
+import { eventStructuredData } from "@/lib/structured-data";
+
+export const metadata = createPageMetadata({
+  title: "Neighborhood Hacks 2026 Schedule & Event Timeline",
+  description:
+    "See registration, kickoff, hacking, submission, judging, and winner milestones for the seven-day virtual Neighborhood Hacks high school hackathon.",
+  path: "/timeline",
+});
+
 const milestones = [
   {
     date: "August 28th",
@@ -49,8 +60,10 @@ const milestones = [
 
 export default function Timeline() {
   return (
-    <section className="min-h-screen px-4 sm:px-8 pt-24 pb-16">
-      <div className="max-w-4xl mx-auto md:ml-24 lg:ml-40">
+    <>
+      <StructuredData data={eventStructuredData} />
+      <section className="min-h-screen px-4 sm:px-8 pt-24 pb-16">
+        <div className="max-w-4xl mx-auto md:ml-24 lg:ml-40">
         {/* Issue label */}
         <div className="font-mono text-[11px] uppercase tracking-[0.2em] text-gray mb-6 font-semibold">
           PAGE_004 / HOW IT WORKS
@@ -121,7 +134,8 @@ export default function Timeline() {
             before the event to find teammates in the #team-formation channel.
           </p>
         </div>
-      </div>
-    </section>
+        </div>
+      </section>
+    </>
   );
 }

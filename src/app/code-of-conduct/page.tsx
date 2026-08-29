@@ -1,3 +1,12 @@
+import { createPageMetadata } from "@/lib/seo";
+
+export const metadata = createPageMetadata({
+  title: "Neighborhood Hacks 2026 Code of Conduct",
+  description:
+    "Read the standards for respectful, inclusive, and safe participation across Neighborhood Hacks event spaces, plus reporting and enforcement details.",
+  path: "/code-of-conduct",
+});
+
 export default function CodeOfConduct() {
   return (
     <section className="min-h-screen px-4 sm:px-8 pt-24 pb-16">

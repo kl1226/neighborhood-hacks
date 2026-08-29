@@ -1,4 +1,13 @@
 import Link from "next/link";
+import { createPageMetadata } from "@/lib/seo";
+
+export const metadata = createPageMetadata({
+  title: "Neighborhood Hacks 2026 Prizes & Awards",
+  description:
+    "View overall prizes, category awards, and participant recognition for Neighborhood Hacks 2026.",
+  path: "/prizes",
+  index: false,
+});
 
 const prizes = [
   {
