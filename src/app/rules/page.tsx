@@ -135,7 +135,7 @@ export default function Rules() {
                 it&apos;s real?&quot;
               </li>
               <li>
-                A 2-3 minute demo video showing the project in action
+                A 2-6 minute demo video showing the project in action
               </li>
               <li>
                 A public code repository link (e.g., GitHub)
