@@ -1,5 +1,6 @@
 import Link from "next/link";
 import StructuredData from "@/components/StructuredData";
+import JudgesStripe from "@/components/JudgesStripe";
 import { createPageMetadata, HOME_DESCRIPTION, HOME_TITLE } from "@/lib/seo";
 import { websiteStructuredData } from "@/lib/structured-data";
 
@@ -93,6 +94,9 @@ export default function Home() {
         </div>
 
       </section>
+
+      {/* Judges — announcement stripe */}
+      <JudgesStripe />
 
       {/* Why Neighborhood Hacks */}
       <section className="py-24 px-4 sm:px-8 border-t border-grid">

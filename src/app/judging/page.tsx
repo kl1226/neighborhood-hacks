@@ -1,4 +1,5 @@
 import { createPageMetadata } from "@/lib/seo";
+import JudgePanel from "@/components/JudgePanel";
 
 export const metadata = createPageMetadata({
   title: "Neighborhood Hacks 2026 Judging Process & Rubric",
@@ -180,6 +181,9 @@ export default function Judging() {
             })}
           </div>
         </div>
+
+        {/* Judge Panelists */}
+        <JudgePanel />
       </div>
     </section>
   );
