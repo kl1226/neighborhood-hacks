@@ -7,7 +7,7 @@ function JudgePhoto({ image, alt }: { image: string; alt: string }) {
   const [failed, setFailed] = useState(false);
 
   return (
-    <div className="w-24 h-24 sm:w-28 sm:h-28 paper-cut-sm shrink-0 overflow-hidden">
+    <div className="w-24 h-24 sm:w-28 sm:h-28 shrink-0 overflow-hidden rounded-full">
       {!failed ? (
         // eslint-disable-next-line @next/next/no-img-element
         <img

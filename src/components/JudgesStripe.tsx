@@ -27,7 +27,7 @@ function LogoCard({
           src={logo}
           alt={`${name} logo`}
           onError={() => setFailed(true)}
-          className="w-40 sm:w-52 h-12 object-contain filter drop-shadow-[0_0_0_rgba(255,255,255,0.05)]"
+          className={`object-contain ${name === "US Bank" ? "w-56 sm:w-72 h-20" : "w-48 sm:w-64 h-16"}`}
         />
       ) : (
         <span className="font-mono text-xs sm:text-sm uppercase tracking-[0.15em] text-gray border border-dashed border-grid px-4 py-3 font-semibold">
@@ -47,7 +47,7 @@ export default function JudgesStripe() {
           {/* Label */}
           <div className="shrink-0">
             <div className="font-hand text-accent text-lg md:text-xl tilt-left block mb-1">
-              ← the ones deciding
+              the ones deciding →
             </div>
             <p className="font-mono text-xs sm:text-sm uppercase tracking-[0.2em] text-gray font-semibold">
               Neighborhood Hacks has

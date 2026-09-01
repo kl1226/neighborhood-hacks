@@ -13,11 +13,11 @@ export type Judge = {
 export const judgeCompanies: JudgeCompany[] = [
   {
     name: "Amazon",
-    logo: "/judges/AmazonLogo.jpg",
+    logo: "/judges/Amazon-White-Logo.png",
   },
   {
     name: "US Bank",
-    logo: "/judges/USBankLogo.png",
+    logo: "/judges/USBank.png",
   },
 ];
 
@@ -32,6 +32,6 @@ export const judgePanelists: Judge[] = [
     name: "Nikhil Singh",
     title: "Lead Software Engineer",
     company: "US Bank",
-    image: "/judges/USBankLogo.png",
+    image: "/judges/NikhilHeadshot.png",
   },
 ];
