@@ -26,7 +26,7 @@ export const judgePanelists: Judge[] = [
     name: "Naveen Goel",
     title: "Senior Technical Program Manager",
     company: "Amazon",
-    image: "/judges/AmazonLogo.jpg",
+    image: "/judges/Naveen.jpeg",
   },
   {
     name: "Nikhil Singh",
