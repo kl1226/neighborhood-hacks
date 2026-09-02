@@ -8,7 +8,7 @@ const footerLinks = [
 ];
 
 const externalLinks = [
-  { href: "https://discord.gg/7rfZsBk5kW", label: "DISCORD" },
+  { href: "https://discord.gg/rS2nmaqpzG", label: "DISCORD" },
   { href: "https://neighborhood-hacks-2026.devpost.com/", label: "DEVPOST" },
   { href: "#", label: "INSTAGRAM" },
 ];
