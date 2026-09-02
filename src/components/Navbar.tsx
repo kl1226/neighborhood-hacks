@@ -50,7 +50,7 @@ export default function Navbar() {
           {/* Right side — external links + register */}
           <div className="flex items-center gap-3">
             <a
-              href="https://discord.gg/7rfZsBk5kW"
+              href="https://discord.gg/rS2nmaqpzG"
               target="_blank"
               rel="noopener noreferrer"
               className="hidden sm:flex font-mono text-[10px] uppercase tracking-[0.15em] text-gray hover:text-accent transition-colors font-semibold"
@@ -99,7 +99,7 @@ export default function Navbar() {
             </div>
             <div className="mt-6 pt-4 border-t border-grid flex gap-6">
               <a
-                href="https://discord.gg/7rfZsBk5kW"
+                href="https://discord.gg/rS2nmaqpzG"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="font-mono text-[10px] uppercase tracking-[0.15em] text-gray hover:text-accent transition-colors font-semibold"

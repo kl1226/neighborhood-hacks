@@ -124,7 +124,7 @@ export default function Timeline() {
             Teams of 3-5 students suggested, however solo entries are allowed. Don&apos;t have a team yet?
             Head to our{" "}
             <a
-              href="https://discord.gg/7rfZsBk5kW"
+              href="https://discord.gg/rS2nmaqpzG"
               target="_blank"
               rel="noopener noreferrer"
               className="text-accent hover:text-off-white underline underline-offset-2"

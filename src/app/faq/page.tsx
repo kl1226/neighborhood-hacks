@@ -142,7 +142,7 @@ export default function FAQ() {
             still have questions?
           </p>
           <a
-            href="https://discord.gg/7rfZsBk5kW"
+            href="https://discord.gg/rS2nmaqpzG"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-block font-mono text-sm uppercase tracking-[0.15em] text-near-black bg-accent px-6 py-3 hover:bg-off-white transition-colors font-semibold"
