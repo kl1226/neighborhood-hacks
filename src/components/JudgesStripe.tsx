@@ -41,39 +41,39 @@ function LogoCard({
 
 export default function JudgesStripe() {
   return (
-    <section className="border-t border-grid border-b border-grid">
-      <div className="px-4 sm:px-8 py-10 sm:py-12">
-        <div className="flex flex-col md:flex-row items-start md:items-center gap-6 md:gap-10 max-w-7xl mx-auto">
-          {/* Label */}
-          <div className="shrink-0">
-            <div className="font-hand text-accent text-lg md:text-xl tilt-left block mb-1">
-              the ones deciding →
+      <section className="border-t border-grid border-b border-grid">
+        <div className="px-4 sm:px-8 py-16 sm:py-20">
+          <div className="max-w-6xl mx-auto">
+            {/* Section header */}
+            <div className="flex flex-col items-start gap-1 sm:flex-row sm:items-end sm:gap-4 mb-12">
+              <h2 className="font-display text-4xl sm:text-5xl font-bold text-off-white">
+                OUR JUDGES
+              </h2>
+              <span className="font-hand text-accent text-xl sm:mb-1 whitespace-nowrap">
+                (the ones deciding)
+              </span>
             </div>
-            <p className="font-mono text-xs sm:text-sm uppercase tracking-[0.2em] text-gray font-semibold">
-              Neighborhood Hacks has
-              <br />
-              judges from
-            </p>
-          </div>
-
-          {/* Logos */}
-          <div className="flex flex-wrap items-center gap-4 sm:gap-6 flex-1">
-            {judgeCompanies.map((company, i) => (
-              <LogoCard
-                key={company.name}
-                logo={company.logo}
-                name={company.name}
-                tilt={i % 2 === 0 ? "tilt-right" : "tilt-left"}
-              />
-            ))}
-
-            {/* "+ more coming" note */}
-            <span className="font-hand text-dim text-lg tilt-right">
-              + more coming
-            </span>
+  
+            {/* Logos */}
+            <div className="flex flex-wrap items-center gap-x-12 gap-y-8 mb-12">
+              {judgeCompanies.map((sponsor, i) => (
+                <LogoCard
+                  key={sponsor.name}
+                  logo={sponsor.logo}
+                  name={sponsor.name}
+                  tilt={i % 2 === 0 ? "tilt-right" : "tilt-left"}
+                />
+              ))}
+  
+              {/* "+ more coming" note */}
+              <span className="font-hand text-dim text-2xl tilt-right">
+                + more coming
+              </span>
+            </div>
+  
           </div>
         </div>
-      </div>
-    </section>
-  );
-}
+      </section>
+    );
+  }
+  

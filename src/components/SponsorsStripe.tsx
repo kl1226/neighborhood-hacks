@@ -69,14 +69,6 @@ export default function SponsorsStripe() {
             </span>
           </div>
 
-          {/* Thank you note */}
-          <div className="paper-cut p-6 sm:p-8 text-center tilt-slight">
-            <p className="font-mono text-sm text-near-black/80 leading-relaxed max-w-2xl mx-auto font-semibold">
-              A huge thank you to all of our sponsors for making Neighborhood
-              Hacks 2026 possible — your support helps us give students the
-              tools to solve problems in their own communities.
-            </p>
-          </div>
         </div>
       </div>
     </section>
