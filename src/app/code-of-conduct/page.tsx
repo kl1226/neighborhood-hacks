@@ -74,10 +74,10 @@ export default function CodeOfConduct() {
             <p className="font-mono text-base text-gray leading-relaxed font-semibold">
               If you experience or witness a problem, email{" "}
               <a
-                href="mailto:hotcometgames@gmail.com"
+                href="mailto:contact@neighborhoodhacks.org"
                 className="text-accent underline [overflow-wrap:anywhere]"
               >
-                hotcometgames@gmail.com
+                contact@neighborhoodhacks.org
               </a>
               . Reports will be handled promptly and as privately as reasonably
               possible. Retaliation against anyone who raises a concern in good

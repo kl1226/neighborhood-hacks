@@ -74,10 +74,10 @@ export default function Footer() {
               ))}
               <li>
                 <a
-                  href="mailto:hotcometgames@gmail.com"
+                  href="mailto:contact@neighborhoodhacks.org"
                   className="font-mono text-sm text-near-black/70 hover:text-near-black transition-colors font-semibold [overflow-wrap:anywhere]"
                 >
-                  hotcometgames@gmail.com
+                  contact@neighborhoodhacks.org
                 </a>
               </li>
             </ul>

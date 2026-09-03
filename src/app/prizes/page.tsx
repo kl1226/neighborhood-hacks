@@ -171,7 +171,7 @@ export default function Prizes() {
             around the world.
           </p>
           <a
-            href="mailto:hotcometgames@gmail.com"
+            href="mailto:contact@neighborhoodhacks.org"
             className="inline-block font-mono text-sm uppercase tracking-[0.15em] bg-near-black text-off-white px-4 sm:px-8 py-3 hover:bg-accent hover:text-near-black transition-colors font-semibold"
           >
             BECOME A SPONSOR →
