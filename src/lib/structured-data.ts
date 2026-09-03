@@ -10,7 +10,7 @@ export const websiteStructuredData = {
       "@id": organizationId,
       name: "Neighborhood Hacks",
       url: `${SITE_URL}/`,
-      email: "neighborhoodhacks@gmail.com",
+      email: "hotcometgames@gmail.com",
       logo: {
         "@type": "ImageObject",
         "@id": `${SITE_URL}/#logo`,

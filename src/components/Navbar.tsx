@@ -9,8 +9,9 @@ const navLinks = [
   { href: "/challenge", label: "CHALLENGE" },
   { href: "/timeline", label: "TIMELINE" },
   { href: "/judging", label: "JUDGING" },
-  { href: "/faq", label: "FAQ" },
+  { href: "/prizes", label: "PRIZES" },
   { href: "/rules", label: "RULES" },
+  { href: "/faq", label: "FAQ" },
 ];
 
 export default function Navbar() {

@@ -1,8 +1,10 @@
 import Link from "next/link";
 import StructuredData from "@/components/StructuredData";
 import JudgesStripe from "@/components/JudgesStripe";
+import SponsorsStripe from "@/components/SponsorsStripe";
 import { createPageMetadata, HOME_DESCRIPTION, HOME_TITLE } from "@/lib/seo";
 import { websiteStructuredData } from "@/lib/structured-data";
+import { DOMAIN_SPONSOR_VALUE } from "@/lib/sponsors";
 
 export const metadata = createPageMetadata({
   title: HOME_TITLE,
@@ -79,22 +81,17 @@ export default function Home() {
             <span className="hidden sm:inline text-grid">|</span>
             <span>TEAMS OF 1-5</span>
             <span className="hidden sm:inline text-grid">|</span>
-            <span className="text-accent">[$X] IN PRIZES</span>
+            <span className="text-accent">[${DOMAIN_SPONSOR_VALUE}+] IN PRIZES</span>
           </div>
 
         </div>
 
-        {/* Decorative paper cutout — bottom right */}
-        <div className="absolute bottom-16 right-8 lg:right-24 hidden lg:block">
-          <div className="paper-cut-sm w-28 h-36 flex items-center justify-center p-3 tilt-left">
-            <span className="font-hand text-near-black text-center text-sm">
-              Scroll ↓
-            </span>
-          </div>
-        </div>
 
       </section>
 
+      {/* Sponsors — announcement stripe */}
+      <SponsorsStripe />
+      
       {/* Judges — announcement stripe */}
       <JudgesStripe />
 

@@ -1,8 +1,8 @@
 import Link from "next/link";
+import { sponsors } from "@/lib/sponsors";
 
 const footerLinks = [
   { href: "/prizes", label: "PRIZES" },
-  { href: "/sponsors", label: "SPONSORS" },
   { href: "/code-of-conduct", label: "CODE_OF_CONDUCT" },
   { href: "/faq", label: "FAQ" },
 ];
@@ -18,7 +18,7 @@ export default function Footer() {
     <footer className="torn-paper-top py-12 px-4 sm:px-8 mt-12">
       <div className="max-w-6xl mx-auto">
         {/* Top section — asymmetric layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-8 mb-12">
+        <div className="grid grid-cols-1 lg:grid-cols-4 gap-12 lg:gap-8 mb-12">
           {/* Branding — tilted slightly */}
           <div className="tilt-slight">
             <Link href="/" className="inline-block">
@@ -74,10 +74,10 @@ export default function Footer() {
               ))}
               <li>
                 <a
-                  href="mailto:neighborhoodhacks@gmail.com"
+                  href="mailto:hotcometgames@gmail.com"
                   className="font-mono text-sm text-near-black/70 hover:text-near-black transition-colors font-semibold [overflow-wrap:anywhere]"
                 >
-                  neighborhoodhacks@gmail.com
+                  hotcometgames@gmail.com
                 </a>
               </li>
             </ul>
