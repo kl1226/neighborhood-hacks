@@ -39,8 +39,8 @@ function LogoCard({
 
 export default function SponsorsStripe() {
   return (
-    <section className="border-t border-grid border-b border-grid">
-      <div className="px-4 sm:px-8 py-16 sm:py-20">
+    <section>
+      <div className="px-4 sm:px-8 py-12 sm:py-14">
         <div className="max-w-6xl mx-auto">
           {/* Section header */}
           <div className="flex flex-col items-start gap-1 sm:flex-row sm:items-end sm:gap-4 mb-12">

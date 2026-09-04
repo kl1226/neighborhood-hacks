@@ -14,6 +14,7 @@ const prizes = [
   {
     place: "🥇",
     title: "GRAND PRIZE",
+    cash: "$125",
     description:
       "Neighborhood Hacks Grand Prize Certificate",
     footnote: "Cash and additional prizes will be added as more sponsors join.",
@@ -22,6 +23,7 @@ const prizes = [
   {
     place: "🥈",
     title: "SECOND PLACE",
+    cash: "$25",
     description:
       "Neighborhood Hacks Second Place Certificate",
     footnote: "Cash and additional prizes will be added as more sponsors join.",
@@ -30,6 +32,7 @@ const prizes = [
   {
     place: "🥉",
     title: "THIRD PLACE",
+    cash: null,
     description:
       "Neighborhood Hacks Third Place Certificate",
     footnote: "Cash and additional prizes will be added as more sponsors join.",
@@ -93,6 +96,11 @@ export default function Prizes() {
                 <h3 className="font-display text-lg font-bold text-off-white mb-3">
                   {prize.title}
                 </h3>
+                {prize.cash && (
+                  <p className="font-display text-3xl font-bold text-accent mb-3">
+                    {prize.cash}
+                  </p>
+                )}
                 <p className="font-mono text-sm text-gray leading-relaxed mb-4 font-semibold">
                   {prize.description}
                 </p>

@@ -34,4 +34,10 @@ export const judgePanelists: Judge[] = [
     company: "US Bank",
     image: "/judges/NikhilHeadshot.png",
   },
+  {
+    name: "Sai Prasad Saladi",
+    title: "Senior Software Engineer",
+    company: "US Bank",
+    image: "/judges/Sai.jpeg",
+  },
 ];

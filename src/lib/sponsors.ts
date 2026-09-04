@@ -20,5 +20,5 @@ export const sponsors: Sponsor[] = [
   },
 ];
 
-export const DOMAIN_SPONSOR_VALUE = 1500;
+export const DOMAIN_SPONSOR_VALUE = 1650;
 export const FREE_DOMAIN_COUNT = 100;
