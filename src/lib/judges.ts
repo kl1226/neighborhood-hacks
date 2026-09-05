@@ -19,6 +19,10 @@ export const judgeCompanies: JudgeCompany[] = [
     name: "US Bank",
     logo: "/judges/USBank.png",
   },
+  {
+    name: "Target",
+    logo: "/judges/Target-Logo.png",
+  },
 ];
 
 export const judgePanelists: Judge[] = [
@@ -39,5 +43,11 @@ export const judgePanelists: Judge[] = [
     title: "Senior Software Engineer",
     company: "US Bank",
     image: "/judges/Sai.jpeg",
+  },
+  {
+    name: "Sravanthi Kondoju",
+    title: "Data Platform Lead",
+    company: "Target",
+    image: "/judges/Sravanthi.png",
   },
 ];
