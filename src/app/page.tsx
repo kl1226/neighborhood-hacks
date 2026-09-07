@@ -4,7 +4,7 @@ import JudgesStripe from "@/components/JudgesStripe";
 import SponsorsStripe from "@/components/SponsorsStripe";
 import { createPageMetadata, HOME_DESCRIPTION, HOME_TITLE } from "@/lib/seo";
 import { websiteStructuredData } from "@/lib/structured-data";
-import { DOMAIN_SPONSOR_VALUE } from "@/lib/sponsors";
+import { TOTAL_PRIZE_VALUE } from "@/lib/sponsors";
 
 export const metadata = createPageMetadata({
   title: HOME_TITLE,
@@ -81,7 +81,7 @@ export default function Home() {
             <span className="hidden sm:inline text-grid">|</span>
             <span>TEAMS OF 1-5</span>
             <span className="hidden sm:inline text-grid">|</span>
-            <span className="text-accent">[${DOMAIN_SPONSOR_VALUE}+] IN PRIZES</span>
+            <span className="text-accent">[${TOTAL_PRIZE_VALUE.toLocaleString("en-US")}+] IN PRIZES</span>
           </div>
 
         </div>

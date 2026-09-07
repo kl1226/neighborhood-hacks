@@ -3,6 +3,7 @@ export type Sponsor = {
   tier: "title" | "supporting";
   contribution: string;
   logo?: string;
+  logoClassName?: string;
 };
 
 export const sponsors: Sponsor[] = [
@@ -18,7 +19,16 @@ export const sponsors: Sponsor[] = [
     contribution: "XYZ: 100 free domains for participating teams",
     logo: "/sponsors/xyz-logo-color.png",
   },
+  {
+    name: "MojoAuth",
+    tier: "supporting",
+    contribution: "MojoAuth: 5 one-year licenses worth $3,000 in total",
+    logo: "/sponsors/mojoauth.svg",
+    logoClassName: "invert",
+  },
 ];
 
 export const DOMAIN_SPONSOR_VALUE = 1650;
+export const MOJOAUTH_SPONSOR_VALUE = 3000;
+export const TOTAL_PRIZE_VALUE = DOMAIN_SPONSOR_VALUE + MOJOAUTH_SPONSOR_VALUE;
 export const FREE_DOMAIN_COUNT = 100;

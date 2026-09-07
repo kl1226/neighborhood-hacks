@@ -1,7 +1,7 @@
 import Link from "next/link";
 import SponsorsStripe from "@/components/SponsorsStripe";
 import { createPageMetadata } from "@/lib/seo";
-import { sponsors, DOMAIN_SPONSOR_VALUE } from "@/lib/sponsors";
+import { TOTAL_PRIZE_VALUE, MOJOAUTH_SPONSOR_VALUE } from "@/lib/sponsors";
 
 export const metadata = createPageMetadata({
   title: "Neighborhood Hacks 2026 Prizes & Sponsors",
@@ -73,7 +73,7 @@ export default function Prizes() {
             TOTAL PRIZE VALUE
           </div>
           <div className="font-display text-4xl sm:text-6xl font-bold text-accent">
-            ${DOMAIN_SPONSOR_VALUE}+
+            ${TOTAL_PRIZE_VALUE.toLocaleString("en-US")}+
           </div>
           <p className="font-mono text-sm text-gray mt-3 max-w-md mx-auto font-semibold">
             Our prizes are funded by our amazing sponsors — every dollar goes
@@ -151,6 +151,16 @@ export default function Prizes() {
           </p>
 
           <SponsorsStripe />
+
+          <div className="rough-border-accent p-6 sm:p-8 mt-8 text-center tilt-left">
+            <h3 className="font-display text-2xl font-bold text-off-white mb-3">
+              5 ONE-YEAR MOJOAUTH LICENSES
+            </h3>
+            <p className="font-mono text-base text-gray leading-relaxed max-w-xl mx-auto font-semibold">
+              MojoAuth is sponsoring five licenses, each valid for one year,
+              worth ${MOJOAUTH_SPONSOR_VALUE.toLocaleString("en-US")} in total.
+            </p>
+          </div>
 
           {/* Domain giveaway */}
           <div className="paper-cut p-6 sm:p-8 mt-8 text-center tilt-slight">

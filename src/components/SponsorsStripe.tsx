@@ -7,10 +7,12 @@ function LogoCard({
   src,
   name,
   tilt,
+  logoClassName = "",
 }: {
   src?: string;
   name: string;
   tilt: string;
+  logoClassName?: string;
 }) {
   const [failed, setFailed] = useState(!src);
 
@@ -25,7 +27,7 @@ function LogoCard({
           src={src}
           alt={`${name} logo`}
           onError={() => setFailed(true)}
-          className="object-contain w-48 sm:w-56 h-16 sm:h-20"
+          className={`object-contain w-48 sm:w-56 h-16 sm:h-20 ${logoClassName}`}
         />
       ) : (
         <span className="font-mono text-sm uppercase tracking-[0.15em] text-gray border border-dashed border-grid px-4 py-3 font-semibold">
@@ -59,6 +61,7 @@ export default function SponsorsStripe() {
                 key={sponsor.name}
                 src={sponsor.logo}
                 name={sponsor.name}
+                logoClassName={sponsor.logoClassName}
                 tilt={i % 2 === 0 ? "tilt-right" : "tilt-left"}
               />
             ))}
