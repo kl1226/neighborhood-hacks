@@ -50,4 +50,10 @@ export const judgePanelists: Judge[] = [
     company: "Target",
     image: "/judges/Sravanthi.png",
   },
+  {
+    name: "Nikhil Reddy Donapati",
+    title: "Software Engineer",
+    company: "NeuroNet Solutions Inc.",
+    image: "/judges/NikhilR.jpg",
+  },
 ];
