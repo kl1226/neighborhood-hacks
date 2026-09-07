@@ -51,6 +51,12 @@ export const judgePanelists: Judge[] = [
     image: "/judges/Sravanthi.png",
   },
   {
+    name: "Ramesh Venkatachalapathy",
+    title: "Principal Engineer",
+    company: "AT&T",
+    image: "/judges/Ramesh_ProfilePic.jpg",
+  },
+  {
     name: "Nikhil Reddy Donapati",
     title: "Software Engineer",
     company: "NeuroNet Solutions Inc.",
