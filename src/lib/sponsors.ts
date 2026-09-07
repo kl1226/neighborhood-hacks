@@ -8,23 +8,17 @@ export type Sponsor = {
 
 export const sponsors: Sponsor[] = [
   {
-    name: "Hot Comet Games",
-    tier: "title",
-    contribution: "Hot Comet Games: Title Sponsor",
-    logo: "/sponsors/HotCometLogo2.0.png",
+    name: "MojoAuth",
+    tier: "supporting",
+    contribution: "MojoAuth: 5 one-year licenses worth $3,000 in total",
+    logo: "/sponsors/mojoauth.svg",
+    logoClassName: "invert",
   },
   {
     name: "XYZ Domains",
     tier: "supporting",
     contribution: "XYZ: 100 free domains for participating teams",
     logo: "/sponsors/xyz-logo-color.png",
-  },
-  {
-    name: "MojoAuth",
-    tier: "supporting",
-    contribution: "MojoAuth: 5 one-year licenses worth $3,000 in total",
-    logo: "/sponsors/mojoauth.svg",
-    logoClassName: "invert",
   },
 ];
 
