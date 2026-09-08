@@ -17,7 +17,9 @@ const prizes = [
     cash: "$125",
     description:
       "Neighborhood Hacks Grand Prize Certificate",
-    footnote: "Cash and additional prizes will be added as more sponsors join.",
+    mojoauthValue: 600,
+    totalValue: "$725",
+    footnote: "",
     highlight: true,
   },
   {
@@ -26,7 +28,9 @@ const prizes = [
     cash: "$25",
     description:
       "Neighborhood Hacks Second Place Certificate",
-    footnote: "Cash and additional prizes will be added as more sponsors join.",
+    mojoauthValue: 600,
+    totalValue: "$625",
+    footnote: "",
     highlight: false,
   },
   {
@@ -35,19 +39,25 @@ const prizes = [
     cash: null,
     description:
       "Neighborhood Hacks Third Place Certificate",
-    footnote: "Cash and additional prizes will be added as more sponsors join.",
+    mojoauthValue: 600,
+    totalValue: "$600",
+    footnote: "",
     highlight: false,
   },
 ];
 
 const categoryAwards = [
   {
-    title: "[CATEGORY AWARD]",
-    description: "To be announced.",
+    title: "MOST UNIQUE SOLUTION",
+    description: "",
+    mojoauthValue: 600,
+    totalValue: "$600",
   },
   {
-    title: "[CATEGORY AWARD]",
-    description: "To be announced.",
+    title: "BEST TECHNICAL EXECUTION",
+    description: "",
+    mojoauthValue: 600,
+    totalValue: "$600",
   },
 ];
 
@@ -93,16 +103,29 @@ export default function Prizes() {
                 className={`p-5 sm:p-6 lg:p-8 text-center ${prize.highlight ? "rough-border-accent tilt-slight" : i === 1 ? "rough-border tilt-right" : "dashed-border tilt-left"}`}
               >
                 <div className="font-hand text-4xl mb-4">{prize.place}</div>
-                <h3 className="font-display text-lg font-bold text-off-white mb-3">
+                <h3 className="font-display text-lg font-bold text-off-white mb-4">
                   {prize.title}
                 </h3>
                 {prize.cash && (
-                  <p className="font-display text-3xl font-bold text-accent mb-3">
-                    {prize.cash}
+                  <p className="font-display text-3xl font-bold text-accent mb-4">
+                    {prize.cash} Cash Prize
                   </p>
                 )}
-                <p className="font-mono text-sm text-gray leading-relaxed mb-4 font-semibold">
-                  {prize.description}
+                <ul className="font-mono text-sm text-gray text-left max-w-md mx-auto space-y-3 mb-4 font-semibold">
+                  <li className="flex items-baseline gap-2">
+                    <span className="text-accent">·</span>
+                    <span>
+                      MojoAuth one-year license (
+                      <span className="text-accent">${prize.mojoauthValue} worth</span>)
+                    </span>
+                  </li>
+                  <li className="flex items-baseline gap-2">
+                    <span className="text-accent">·</span>
+                    <span>{prize.description}</span>
+                  </li>
+                </ul>
+                <p className="font-mono text-[11px] italic text-dim leading-relaxed mb-2">
+                  {prize.totalValue} Total Value
                 </p>
                 <p className="font-mono text-[11px] italic text-dim leading-relaxed">
                   {prize.footnote}
@@ -126,8 +149,20 @@ export default function Prizes() {
                 <h3 className="font-display text-lg font-bold text-off-white mb-2">
                   {award.title}
                 </h3>
-                <p className="font-mono text-sm text-accent font-semibold">
+                <p className="font-mono text-sm text-accent font-semibold mb-3">
                   {award.description}
+                </p>
+                <ul className="font-mono text-sm text-gray text-left max-w-xs mx-auto space-y-2 mb-3 font-semibold">
+                  <li className="flex items-baseline gap-2">
+                    <span className="text-accent">·</span>
+                    <span>
+                      MojoAuth one-year license (
+                      <span className="text-accent">${award.mojoauthValue} worth</span>)
+                    </span>
+                  </li>
+                </ul>
+                <p className="font-mono text-[11px] italic text-dim leading-relaxed">
+                  {award.totalValue} Total Value
                 </p>
               </div>
             ))}
