@@ -184,7 +184,7 @@ export default function Prizes() {
             <div className="flex flex-col items-center gap-6 text-left sm:flex-row sm:gap-8">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src="/sponsors/backboard.jpg"
+                src="/sponsors/backboard2.svg"
                 alt="Backboard logo"
                 className="object-contain w-40 sm:w-48 h-16"
               />
