@@ -62,4 +62,16 @@ export const judgePanelists: Judge[] = [
     company: "NeuroNet Solutions Inc.",
     image: "/judges/NikhilR.jpg",
   },
+  {
+    name: "Monish Chandrashekar",
+    title: "Manager – Cyber Risk, Data Engineering & AI",
+    company: "PwC",
+    image: "/judges/Monish.JPG",
+  },
+  {
+    name: " Renata Blazhko",
+    title: "Product & Data Analysis Lead",
+    company: "SoftSwiss",
+    image: "/judges/Renata.jpeg",
+  },
 ];
