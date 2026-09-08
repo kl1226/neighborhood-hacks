@@ -1,7 +1,12 @@
 import Link from "next/link";
 import SponsorsStripe from "@/components/SponsorsStripe";
 import { createPageMetadata } from "@/lib/seo";
-import { TOTAL_PRIZE_VALUE, MOJOAUTH_SPONSOR_VALUE } from "@/lib/sponsors";
+import {
+  TOTAL_PRIZE_VALUE,
+  MOJOAUTH_SPONSOR_VALUE,
+  BACKBOARD_SPONSOR_VALUE,
+  BACKBOARD_WINNER_COUNT,
+} from "@/lib/sponsors";
 
 export const metadata = createPageMetadata({
   title: "Neighborhood Hacks 2026 Prizes & Sponsors",
@@ -169,6 +174,59 @@ export default function Prizes() {
           </div>
         </div>
 
+
+        {/* Backboard prize */}
+        <div className="mb-16">
+          <h2 className="font-display text-2xl font-bold text-off-white mb-6">
+            PARTICIPANT PRIZES
+          </h2>
+          <div className="rough-border-accent p-6 sm:p-8 tilt-slight">
+            <div className="flex flex-col items-center gap-6 text-left sm:flex-row sm:gap-8">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/sponsors/backboard.jpg"
+                alt="Backboard logo"
+                className="object-contain w-40 sm:w-48 h-16"
+              />
+              <div className="min-w-0">
+                <h3 className="font-display text-lg font-bold text-off-white mb-4">
+                  BACKBOARD DEVELOPER CREDITS — {BACKBOARD_WINNER_COUNT} WINNERS
+                </h3>
+                <ul className="font-mono text-sm text-gray space-y-3 font-semibold">
+                  <li className="flex items-baseline gap-2">
+                    <span className="text-accent">·</span>
+                    <span>
+                      <span className="text-accent">$10 in developer credits</span>{" "}
+                      usable across Backboard&apos;s Unified API, Studio, R-CLI,
+                      and Terminal Bench with promo code{" "}
+                      <span className="text-accent whitespace-nowrap">
+                        NEIGHBORHOODHACKS2026
+                      </span>
+                    </span>
+                  </li>
+                  <li className="flex items-baseline gap-2">
+                    <span className="text-accent">·</span>
+                    <span>
+                      Sign up and redeem at{" "}
+                      <a
+                        href="https://app.backboard.io/hackathon"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-accent underline [overflow-wrap:anywhere]"
+                      >
+                        app.backboard.io/hackathon
+                      </a>
+                    </span>
+                  </li>
+                </ul>
+                <p className="font-mono text-[11px] italic text-dim leading-relaxed mt-4">
+                  Open to all participants — ${BACKBOARD_SPONSOR_VALUE.toLocaleString("en-US")}{" "}
+                  in total value
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
 
         {/* Sponsors */}
         <div className="mb-16">
