@@ -11,7 +11,7 @@ export const sponsors: Sponsor[] = [
     name: "Backboard",
     tier: "supporting",
     contribution:
-      "Backboard: $10 developer credits for 250 winners, worth $2,500 in total",
+      "Backboard: $10 developer credits for 500 winners, worth $5,000 in total",
     logo: "/sponsors/backboard2.svg",
   },
   {
@@ -31,8 +31,8 @@ export const sponsors: Sponsor[] = [
 
 export const DOMAIN_SPONSOR_VALUE = 1650;
 export const MOJOAUTH_SPONSOR_VALUE = 3000;
-export const BACKBOARD_SPONSOR_VALUE = 2500;
-export const BACKBOARD_WINNER_COUNT = 250;
+export const BACKBOARD_SPONSOR_VALUE = 5000;
+export const BACKBOARD_WINNER_COUNT = 500;
 export const TOTAL_PRIZE_VALUE =
   DOMAIN_SPONSOR_VALUE + MOJOAUTH_SPONSOR_VALUE + BACKBOARD_SPONSOR_VALUE;
 export const FREE_DOMAIN_COUNT = 100;
