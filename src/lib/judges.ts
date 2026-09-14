@@ -33,6 +33,12 @@ export const judgePanelists: Judge[] = [
     image: "/judges/Naveen.jpeg",
   },
   {
+    name: "Akhil Kumar Mengani",
+    title: "Senior Software Engineer",
+    company: "Meta",
+    image: "/judges/Akhil-ProfessionalPhoto.png",
+  },
+  {
     name: "Nikhil Singh",
     title: "Lead Software Engineer",
     company: "US Bank",
