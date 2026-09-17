@@ -80,4 +80,10 @@ export const judgePanelists: Judge[] = [
     company: "SoftSwiss",
     image: "/judges/Reneta.jpeg",
   },
+  {
+    name: "Gayathri Chilukala",
+    title: "Software Engineer",
+    company: "Microsoft — Azure OpenAI Team",
+    image: "/judges/Gayathri-Chilukala.jpg",
+  },
 ];
