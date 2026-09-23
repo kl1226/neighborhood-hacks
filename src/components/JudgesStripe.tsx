@@ -27,7 +27,7 @@ function LogoCard({
           src={logo}
           alt={`${name} logo`}
           onError={() => setFailed(true)}
-          className={`object-contain ${name === "US Bank" ? "w-56 sm:w-72 h-20" : "w-48 sm:w-64 h-16"}`}
+          className={`object-contain ${name === "US Bank" ? "w-56 sm:w-72 h-20" : name === "Microsoft" ? "w-56 sm:w-72 h-24" : "w-48 sm:w-64 h-16"}`}
         />
       ) : (
         <span className="font-mono text-xs sm:text-sm uppercase tracking-[0.15em] text-gray border border-dashed border-grid px-4 py-3 font-semibold">

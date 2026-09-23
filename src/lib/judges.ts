@@ -20,8 +20,12 @@ export const judgeCompanies: JudgeCompany[] = [
     logo: "/judges/USBank.png",
   },
   {
-    name: "Target",
-    logo: "/judges/Target-Logo.png",
+    name: "Meta",
+    logo: "/judges/Meta-Logo.png",
+  },
+  {
+    name: "Microsoft",
+    logo: "/judges/microsoft-icon.webp",
   },
 ];
 
@@ -31,6 +35,18 @@ export const judgePanelists: Judge[] = [
     title: "Senior Technical Program Manager",
     company: "Amazon",
     image: "/judges/Naveen.jpeg",
+  },
+  {
+    name: "Akhil Kumar Mengani",
+    title: "Senior Software Engineer",
+    company: "Meta",
+    image: "/judges/AkhilKumarMengani.png",
+  },
+  {
+    name: "Gayathri Chilukala",
+    title: "Software Engineer",
+    company: "Microsoft — Azure OpenAI Team",
+    image: "/judges/GayathrioChilukala.png",
   },
   {
     name: "Nikhil Singh",
@@ -72,6 +88,6 @@ export const judgePanelists: Judge[] = [
     name: " Renata Blazhko",
     title: "Product & Data Analysis Lead",
     company: "SoftSwiss",
-    image: "/judges/Reneta.jpeg",
+    image: "/judges/RenataBlazhko.png",
   },
 ];
