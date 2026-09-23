@@ -4,8 +4,9 @@ import { createPageMetadata } from "@/lib/seo";
 import {
   TOTAL_PRIZE_VALUE,
   MOJOAUTH_SPONSOR_VALUE,
-  BACKBOARD_SPONSOR_VALUE,
   BACKBOARD_WINNER_COUNT,
+  FREE_DOMAIN_COUNT,
+  FINALIST_COUNT,
 } from "@/lib/sponsors";
 
 export const metadata = createPageMetadata({
@@ -15,38 +16,64 @@ export const metadata = createPageMetadata({
   path: "/prizes",
 });
 
+type PrizeItem = {
+  label: string;
+  note?: string;
+};
+
 const prizes = [
   {
     place: "🥇",
     title: "GRAND PRIZE",
-    cash: "$125",
-    description:
-      "Neighborhood Hacks Grand Prize Certificate",
-    mojoauthValue: 600,
-    totalValue: "$725",
-    footnote: "",
+    cash: "$1,613",
+    winners: 1,
+    items: [
+      { label: "$125 in cash" },
+      {
+        label: "MojoAuth one-year license",
+        note: "$600 worth",
+      },
+      { label: "Formaloo paid workspace credits", note: "$500 worth" },
+      { label: "Spine one-year professional license", note: "$379 worth" },
+      { label: "Pyxel Edit license", note: "$9 worth" },
+    ],
+    certificate: "Neighborhood Hacks First Place Certificate",
+    noCashFootnote: false,
     highlight: true,
   },
   {
     place: "🥈",
     title: "SECOND PLACE",
-    cash: "$25",
-    description:
-      "Neighborhood Hacks Second Place Certificate",
-    mojoauthValue: 600,
-    totalValue: "$625",
-    footnote: "",
+    cash: "$1,134",
+    winners: 1,
+    items: [
+      { label: "$25 in cash" },
+      {
+        label: "MojoAuth one-year license",
+        note: "$600 worth",
+      },
+      { label: "Formaloo paid workspace credits", note: "$500 worth" },
+      { label: "Pyxel Edit license", note: "$9 worth" },
+    ],
+    certificate: "Neighborhood Hacks Second Place Certificate",
+    noCashFootnote: false,
     highlight: false,
   },
   {
     place: "🥉",
     title: "THIRD PLACE",
-    cash: null,
-    description:
-      "Neighborhood Hacks Third Place Certificate",
-    mojoauthValue: 600,
-    totalValue: "$600",
-    footnote: "",
+    cash: "$1,109",
+    winners: 1,
+    items: [
+      {
+        label: "MojoAuth one-year license",
+        note: "$600 worth",
+      },
+      { label: "Formaloo paid workspace credits", note: "$500 worth" },
+      { label: "Pyxel Edit license", note: "$9 worth" },
+    ],
+    certificate: "Neighborhood Hacks Third Place Certificate",
+    noCashFootnote: true,
     highlight: false,
   },
 ];
@@ -54,17 +81,90 @@ const prizes = [
 const categoryAwards = [
   {
     title: "MOST UNIQUE SOLUTION",
-    description: "",
-    mojoauthValue: 600,
-    totalValue: "$600",
+    cash: "$609",
+    winners: 1,
+    items: [
+      {
+        label: "MojoAuth one-year license",
+        note: "$600 worth",
+      },
+      { label: "Pyxel Edit license", note: "$9 worth" },
+    ],
+    noCashFootnote: true,
   },
   {
     title: "BEST TECHNICAL EXECUTION",
-    description: "",
-    mojoauthValue: 600,
-    totalValue: "$600",
+    cash: "$609",
+    winners: 1,
+    items: [
+      {
+        label: "MojoAuth one-year license",
+        note: "$600 worth",
+      },
+      { label: "Pyxel Edit license", note: "$9 worth" },
+    ],
+    noCashFootnote: true,
   },
 ];
+
+const participantPrizes = [
+  {
+    title: "XYZ DOMAIN AWARDS",
+    cash: "$15",
+    winners: `${FREE_DOMAIN_COUNT}`,
+    description:
+      "The first 100 requests after the hackathon receive a free .xyz domain for a year, no costs for a year. (≈$15 value each)",
+    noCashFootnote: true,
+  },
+  {
+    title: "FINALIST CERTIFICATION",
+    winners: `${FINALIST_COUNT}`,
+    description:
+      "The top 10 submissions receive an official Neighborhood Hacks Finalist Certificate",
+    noCashFootnote: false,
+  },
+  {
+    title: "BACKBOARD DEVELOPER CREDITS",
+    cash: "$10",
+    winners: `${BACKBOARD_WINNER_COUNT}`,
+    description:
+      "$10 developer credits usable across Backboard's Unified API, Studio, R-CLI, and Terminal Bench. Available to all participants of Neighborhood Hacks. Use code: 'NEIGHBORHOODHACKS2026'",
+    noCashFootnote: true,
+    link: {
+      href: "https://app.backboard.io/hackathon",
+      label: "Sign up and redeem at app.backboard.io/hackathon",
+    },
+  },
+];
+
+function PrizeItems({ items }: { items: PrizeItem[] }) {
+  return (
+    <ul className="font-mono text-sm text-gray text-left max-w-md mx-auto space-y-3 mb-4 font-semibold">
+      {items.map((item) => (
+        <li key={item.label} className="flex items-baseline gap-2">
+          <span className="text-accent">·</span>
+          <span>
+            {item.label}
+            {item.note && (
+              <>
+                <span> — </span>
+                <span className="text-accent">{item.note}</span>
+              </>
+            )}
+          </span>
+        </li>
+      ))}
+    </ul>
+  );
+}
+
+function NoCashFootnote() {
+  return (
+    <p className="font-mono text-[11px] italic text-accent leading-relaxed font-semibold">
+      ⚠️ THIS IS NOT A CASH PRIZE
+    </p>
+  );
+}
 
 export default function Prizes() {
   return (
@@ -108,33 +208,20 @@ export default function Prizes() {
                 className={`p-5 sm:p-6 lg:p-8 text-center ${prize.highlight ? "rough-border-accent tilt-slight" : i === 1 ? "rough-border tilt-right" : "dashed-border tilt-left"}`}
               >
                 <div className="font-hand text-4xl mb-4">{prize.place}</div>
-                <h3 className="font-display text-lg font-bold text-off-white mb-4">
+                <h3 className="font-display text-lg font-bold text-off-white mb-2">
                   {prize.title}
                 </h3>
-                {prize.cash && (
-                  <p className="font-display text-3xl font-bold text-accent mb-4">
-                    {prize.cash} Cash Prize
-                  </p>
-                )}
-                <ul className="font-mono text-sm text-gray text-left max-w-md mx-auto space-y-3 mb-4 font-semibold">
-                  <li className="flex items-baseline gap-2">
-                    <span className="text-accent">·</span>
-                    <span>
-                      MojoAuth one-year license (
-                      <span className="text-accent">${prize.mojoauthValue} worth</span>)
-                    </span>
-                  </li>
-                  <li className="flex items-baseline gap-2">
-                    <span className="text-accent">·</span>
-                    <span>{prize.description}</span>
-                  </li>
-                </ul>
-                <p className="font-mono text-[11px] italic text-dim leading-relaxed mb-2">
-                  {prize.totalValue} Total Value
+                <p className="font-mono text-[11px] uppercase tracking-[0.15em] text-dim mb-3 font-semibold">
+                  {prize.winners} WINNER{prize.winners === 1 ? "" : "S"}
                 </p>
-                <p className="font-mono text-[11px] italic text-dim leading-relaxed">
-                  {prize.footnote}
+                <p className="font-display text-3xl font-bold text-accent mb-4">
+                  {prize.cash}
                 </p>
+                <PrizeItems items={prize.items} />
+                <p className="font-mono text-sm text-gray italic text-center max-w-md mx-auto mb-4 font-semibold">
+                  {prize.certificate}
+                </p>
+                {prize.noCashFootnote && <NoCashFootnote />}
               </div>
             ))}
           </div>
@@ -148,83 +235,63 @@ export default function Prizes() {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             {categoryAwards.map((award, i) => (
               <div
-                key={i}
+                key={award.title}
                 className={`p-6 text-center ${i === 0 ? "rough-border tilt-left" : "dashed-border"}`}
               >
                 <h3 className="font-display text-lg font-bold text-off-white mb-2">
                   {award.title}
                 </h3>
+                <p className="font-mono text-[11px] uppercase tracking-[0.15em] text-dim mb-3 font-semibold">
+                  {award.winners} WINNER{award.winners === 1 ? "" : "S"}
+                </p>
                 <p className="font-mono text-sm text-accent font-semibold mb-3">
-                  {award.description}
+                  {award.cash}
                 </p>
-                <ul className="font-mono text-sm text-gray text-left max-w-xs mx-auto space-y-2 mb-3 font-semibold">
-                  <li className="flex items-baseline gap-2">
-                    <span className="text-accent">·</span>
-                    <span>
-                      MojoAuth one-year license (
-                      <span className="text-accent">${award.mojoauthValue} worth</span>)
-                    </span>
-                  </li>
-                </ul>
-                <p className="font-mono text-[11px] italic text-dim leading-relaxed">
-                  {award.totalValue} Total Value
-                </p>
+                <PrizeItems items={award.items} />
+                {award.noCashFootnote && <NoCashFootnote />}
               </div>
             ))}
           </div>
         </div>
 
-
-        {/* Backboard prize */}
+        {/* Participant prizes */}
         <div className="mb-16">
           <h2 className="font-display text-2xl font-bold text-off-white mb-6">
             PARTICIPANT PRIZES
           </h2>
-          <div className="rough-border-accent p-6 sm:p-8 tilt-slight">
-            <div className="flex flex-col items-center gap-6 text-left sm:flex-row sm:gap-8">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src="/sponsors/backboard2.svg"
-                alt="Backboard logo"
-                className="object-contain w-40 sm:w-48 h-16"
-              />
-              <div className="min-w-0">
-                <h3 className="font-display text-lg font-bold text-off-white mb-4">
-                  BACKBOARD DEVELOPER CREDITS — {BACKBOARD_WINNER_COUNT} WINNERS
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+            {participantPrizes.map((prize, i) => (
+              <div
+                key={prize.title}
+                className={`p-6 text-center ${i === 1 ? "dashed-border tilt-left" : i === 0 ? "rough-border" : "rough-border-accent tilt-slight"}`}
+              >
+                <h3 className="font-display text-lg font-bold text-off-white mb-2">
+                  {prize.title}
                 </h3>
-                <ul className="font-mono text-sm text-gray space-y-3 font-semibold">
-                  <li className="flex items-baseline gap-2">
-                    <span className="text-accent">·</span>
-                    <span>
-                      <span className="text-accent">$10 in developer credits</span>{" "}
-                      usable across Backboard&apos;s Unified API, Studio, R-CLI,
-                      and Terminal Bench with promo code{" "}
-                      <span className="text-accent whitespace-nowrap">
-                        NEIGHBORHOODHACKS2026
-                      </span>
-                    </span>
-                  </li>
-                  <li className="flex items-baseline gap-2">
-                    <span className="text-accent">·</span>
-                    <span>
-                      Sign up and redeem at{" "}
-                      <a
-                        href="https://app.backboard.io/hackathon"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-accent underline [overflow-wrap:anywhere]"
-                      >
-                        app.backboard.io/hackathon
-                      </a>
-                    </span>
-                  </li>
-                </ul>
-                <p className="font-mono text-[11px] italic text-dim leading-relaxed mt-4">
-                  Open to all participants — ${BACKBOARD_SPONSOR_VALUE.toLocaleString("en-US")}{" "}
-                  in total value
+                <p className="font-mono text-[11px] uppercase tracking-[0.15em] text-dim mb-3 font-semibold">
+                  {prize.winners} WINNERS
                 </p>
+                {prize.cash && (
+                  <p className="font-mono text-sm text-accent font-semibold mb-3">
+                    {prize.cash}
+                  </p>
+                )}
+                <p className="font-mono text-sm text-gray text-left max-w-md mx-auto mb-4 font-semibold">
+                  {prize.description}
+                </p>
+                {prize.link && (
+                  <a
+                    href={prize.link.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block font-mono text-sm text-accent underline [overflow-wrap:anywhere] mb-4 font-semibold"
+                  >
+                    {prize.link.label}
+                  </a>
+                )}
+                {prize.noCashFootnote && <NoCashFootnote />}
               </div>
-            </div>
+            ))}
           </div>
         </div>
 
@@ -244,32 +311,6 @@ export default function Prizes() {
           </p>
 
           <SponsorsStripe />
-
-          <div className="rough-border-accent p-6 sm:p-8 mt-8 text-center tilt-left">
-            <h3 className="font-display text-2xl font-bold text-off-white mb-3">
-              5 ONE-YEAR MOJOAUTH LICENSES
-            </h3>
-            <p className="font-mono text-base text-gray leading-relaxed max-w-xl mx-auto font-semibold">
-              MojoAuth is sponsoring five licenses, each valid for one year,
-              worth ${MOJOAUTH_SPONSOR_VALUE.toLocaleString("en-US")} in total.
-            </p>
-          </div>
-
-          {/* Domain giveaway */}
-          <div className="paper-cut p-6 sm:p-8 mt-8 text-center tilt-slight">
-            <div className="font-mono text-[11px] uppercase tracking-[0.2em] text-near-black/50 mb-3 font-semibold">
-              FREE DOMAINS — FIRST COME, FIRST SERVE
-            </div>
-            <h3 className="font-display text-2xl font-bold text-near-black mb-3">
-              EVERY TEAM GETS A FREE DOMAIN
-            </h3>
-            <p className="font-mono text-base text-near-black/80 leading-relaxed max-w-xl mx-auto font-semibold">
-              Thanks to our sponsor XYZ Domains, every team receives a free
-              domain for their project. Only 100 are available and they go
-              first come, first served — so register early and claim yours
-              before they run out!
-            </p>
-          </div>
         </div>
 
         {/* Become a sponsor CTA */}

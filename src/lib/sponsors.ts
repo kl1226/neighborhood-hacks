@@ -27,12 +27,41 @@ export const sponsors: Sponsor[] = [
     contribution: "XYZ: 100 free domains for participating teams",
     logo: "/sponsors/xyz-logo-color.png",
   },
+  {
+    name: "Formaloo",
+    tier: "supporting",
+    contribution: "Formaloo: sponsor of Neighborhood Hacks",
+    logo: "/sponsors/Formaloo_logo_double_height.png",
+  },
+  {
+    name: "esoteric",
+    tier: "supporting",
+    contribution: "esoteric: sponsor of Neighborhood Hacks",
+    logo: "/sponsors/esoteric_software_logo.png",
+  },
+  {
+    name: "Pyxel Edit",
+    tier: "supporting",
+    contribution: "Pyxel Edit: sponsor of Neighborhood Hacks",
+    logo: "/sponsors/PyxelEdit.png",
+  },
 ];
 
-export const DOMAIN_SPONSOR_VALUE = 1650;
+export const DOMAIN_SPONSOR_VALUE = 1500;
 export const MOJOAUTH_SPONSOR_VALUE = 3000;
+export const FORMALOO_SPONSOR_VALUE = 1500;
+export const SPINE_SPONSOR_VALUE = 379;
+export const PYXEL_EDIT_SPONSOR_VALUE = 45;
+export const CASH_PRIZE_VALUE = 150;
 export const BACKBOARD_SPONSOR_VALUE = 5000;
 export const BACKBOARD_WINNER_COUNT = 500;
-export const TOTAL_PRIZE_VALUE =
-  DOMAIN_SPONSOR_VALUE + MOJOAUTH_SPONSOR_VALUE + BACKBOARD_SPONSOR_VALUE;
 export const FREE_DOMAIN_COUNT = 100;
+export const FINALIST_COUNT = 10;
+export const TOTAL_PRIZE_VALUE =
+  DOMAIN_SPONSOR_VALUE +
+  MOJOAUTH_SPONSOR_VALUE +
+  FORMALOO_SPONSOR_VALUE +
+  SPINE_SPONSOR_VALUE +
+  PYXEL_EDIT_SPONSOR_VALUE +
+  CASH_PRIZE_VALUE +
+  BACKBOARD_SPONSOR_VALUE;
