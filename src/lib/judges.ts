@@ -85,7 +85,7 @@ export const judgePanelists: Judge[] = [
     image: "/judges/Monish.JPG",
   },
   {
-    name: " Renata Blazhko",
+    name: "Renata Blazhko",
     title: "Product & Data Analysis Lead",
     company: "SoftSwiss",
     image: "/judges/RenataBlazhko.png",
