@@ -31,7 +31,8 @@ export const sponsors: Sponsor[] = [
     name: "Formaloo",
     tier: "supporting",
     contribution: "Formaloo: sponsor of Neighborhood Hacks",
-    logo: "/sponsors/Formaloo_logo_double_height.png",
+    logo: "/sponsors/Formaloo-logo-2026.png",
+    logoClassName: "!w-72 sm:!w-96",
   },
   {
     name: "esoteric",
