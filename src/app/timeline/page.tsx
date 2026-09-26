@@ -31,7 +31,8 @@ const milestones = [
     date: "October 20th · 9:00 PM ET",
     title: "MOMEN WORKSHOP",
     description:
-      "Join Momen for a live workshop during the build week. Joining details and builder resources will be shared with participants.",
+      "Join Momen for a live workshop during the build week. Builder resources will be shared with participants.",
+    link: "https://us06web.zoom.us/j/82869207679?pwd=SEa1QYrxFVoxlWIIj7bgRGlUKDQO05.1",
   },
   {
     date: "October 23rd 11:59 PM CST",
@@ -116,6 +117,16 @@ export default function Timeline() {
                 <p className="font-mono text-sm text-gray mt-1 font-semibold">
                   {milestone.description}
                 </p>
+                {milestone.link && (
+                  <a
+                    href={milestone.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-block mt-3 font-mono text-sm text-accent underline underline-offset-4 hover:text-off-white font-semibold"
+                  >
+                    Join the Momen workshop on Zoom ↗
+                  </a>
+                )}
               </div>
             </div>
           ))}
