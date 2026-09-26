@@ -28,6 +28,12 @@ const milestones = [
       "Build your project. Work asynchronously on your own or with your team.",
   },
   {
+    date: "October 20th · 9:00 PM ET",
+    title: "MOMEN WORKSHOP",
+    description:
+      "Join Momen for a live workshop during the build week. Joining details and builder resources will be shared with participants.",
+  },
+  {
     date: "October 23rd 11:59 PM CST",
     title: "SUBMISSIONS CLOSE",
     description:

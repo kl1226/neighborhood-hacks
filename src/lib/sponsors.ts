@@ -46,6 +46,13 @@ export const sponsors: Sponsor[] = [
     contribution: "Pyxel Edit: sponsor of Neighborhood Hacks",
     logo: "/sponsors/PyxelEdit.png",
   },
+  {
+    name: "Momen",
+    tier: "supporting",
+    contribution: "Momen: workshop and builder resources for participants",
+    logo: "/sponsors/Momen-logo-2026.png",
+    logoClassName: "!w-64 sm:!w-80 rounded-sm bg-off-white px-3 py-2",
+  },
 ];
 
 export const DOMAIN_SPONSOR_VALUE = 1500;
