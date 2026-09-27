@@ -73,7 +73,7 @@ export default function SponsorsStripe() {
           </div>
 
           <div className="border-t border-grid pt-10">
-            <h2 className="font-display text-3xl sm:text-4xl font-bold text-off-white mb-6">
+            <h2 className="font-display text-[1.6875rem] sm:text-[2.025rem] font-bold text-off-white mb-[1.35rem]">
               OUR PARTNERS
             </h2>
             <div className="flex flex-wrap gap-6">
@@ -83,19 +83,19 @@ export default function SponsorsStripe() {
                   href={partner.url}
                   target="_blank"
                   rel="noopener"
-                  className="inline-flex items-center gap-5 rough-border px-5 py-4 hover:border-accent transition-colors"
+                  className="inline-flex items-center gap-[1.125rem] rough-border px-[1.125rem] py-[0.9rem] hover:border-accent transition-colors"
                 >
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
                     src={partner.logo}
                     alt={`${partner.name} logo`}
-                    className="w-20 h-20 sm:w-24 sm:h-24 object-contain"
+                    className="w-[4.5rem] h-[4.5rem] sm:w-[5.4rem] sm:h-[5.4rem] object-contain"
                   />
                   <span className="flex flex-col gap-1">
-                    <span className="font-display text-xl font-bold text-off-white">
+                    <span className="font-display text-[1.125rem] font-bold text-off-white">
                       {partner.name} ↗
                     </span>
-                    <span className="font-mono text-sm text-gray font-semibold">
+                    <span className="font-mono text-[0.7875rem] text-gray font-semibold">
                       {partner.description}
                     </span>
                   </span>
