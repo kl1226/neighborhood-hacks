@@ -6,6 +6,13 @@ export type Sponsor = {
   logoClassName?: string;
 };
 
+export type Partner = {
+  name: string;
+  url: string;
+  logo: string;
+  description: string;
+};
+
 export const sponsors: Sponsor[] = [
   {
     name: "Backboard",
@@ -52,6 +59,15 @@ export const sponsors: Sponsor[] = [
     contribution: "Momen: workshop and builder resources for participants",
     logo: "/sponsors/Momen-logo-2026.png",
     logoClassName: "!w-64 sm:!w-80 rounded-sm bg-off-white px-3 py-2",
+  },
+];
+
+export const partners: Partner[] = [
+  {
+    name: "Doq",
+    url: "https://doq.world/",
+    logo: "/partners/Doq-logo.png",
+    description: "Discover competitions for high school students",
   },
 ];
 

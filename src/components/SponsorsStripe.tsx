@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { sponsors } from "@/lib/sponsors";
+import { partners, sponsors } from "@/lib/sponsors";
 
 function LogoCard({
   src,
@@ -70,6 +70,38 @@ export default function SponsorsStripe() {
             <span className="font-hand text-dim text-2xl tilt-right">
               + more coming
             </span>
+          </div>
+
+          <div className="border-t border-grid pt-10">
+            <h2 className="font-display text-3xl sm:text-4xl font-bold text-off-white mb-6">
+              OUR PARTNERS
+            </h2>
+            <div className="flex flex-wrap gap-6">
+              {partners.map((partner) => (
+                <a
+                  key={partner.name}
+                  href={partner.url}
+                  target="_blank"
+                  rel="noopener"
+                  className="inline-flex items-center gap-5 rough-border px-5 py-4 hover:border-accent transition-colors"
+                >
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={partner.logo}
+                    alt={`${partner.name} logo`}
+                    className="w-20 h-20 sm:w-24 sm:h-24 object-contain"
+                  />
+                  <span className="flex flex-col gap-1">
+                    <span className="font-display text-xl font-bold text-off-white">
+                      {partner.name} ↗
+                    </span>
+                    <span className="font-mono text-sm text-gray font-semibold">
+                      {partner.description}
+                    </span>
+                  </span>
+                </a>
+              ))}
+            </div>
           </div>
 
         </div>
