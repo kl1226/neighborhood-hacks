@@ -63,13 +63,15 @@ export default function JudgePanel() {
                   >
                     {judge.name}
                   </div>
-                  <div
-                    className={`font-mono text-xs uppercase tracking-[0.15em] mt-1 ${
-                      isPaper ? "text-near-black/60" : "text-gray"
-                    }`}
-                  >
-                    {judge.title}
-                  </div>
+                  {judge.title && (
+                    <div
+                      className={`font-mono text-xs uppercase tracking-[0.15em] mt-1 ${
+                        isPaper ? "text-near-black/60" : "text-gray"
+                      }`}
+                    >
+                      {judge.title}
+                    </div>
+                  )}
                   <div
                     className={`inline-flex items-center gap-2 mt-3 font-mono text-xs uppercase tracking-[0.15em] font-bold ${
                       isPaper ? "text-near-black" : "text-accent"
