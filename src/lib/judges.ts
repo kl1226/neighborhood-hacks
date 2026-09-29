@@ -93,7 +93,7 @@ export const judgePanelists: Judge[] = [
   {
     name: "Eunbean Lee",
     title: "",
-    company: "Carnegie Mellon University — College of Computer Science and Psychology",
+    company: "Carnegie Mellon University — School of Computer Science and Humanities",
     image: "/judges/EunbeanLee.jpeg",
   },
 ];
