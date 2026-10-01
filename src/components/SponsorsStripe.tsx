@@ -8,19 +8,18 @@ function LogoCard({
   name,
   tilt,
   logoClassName = "",
+  url,
 }: {
   src?: string;
   name: string;
   tilt: string;
   logoClassName?: string;
+  url?: string;
 }) {
   const [failed, setFailed] = useState(!src);
 
-  return (
-    <span
-      title={name}
-      className={`inline-flex items-center justify-center ${tilt}`}
-    >
+  const logo = (
+    <>
       {!failed && src ? (
         // eslint-disable-next-line @next/next/no-img-element
         <img
@@ -35,6 +34,24 @@ function LogoCard({
         </span>
       )}
       <span className="sr-only">{name}</span>
+    </>
+  );
+
+  const className = `inline-flex items-center justify-center ${tilt}`;
+
+  return url ? (
+    <a
+      href={url}
+      target="_blank"
+      rel="noopener noreferrer"
+      title={name}
+      className={className}
+    >
+      {logo}
+    </a>
+  ) : (
+    <span title={name} className={className}>
+      {logo}
     </span>
   );
 }
@@ -62,6 +79,7 @@ export default function SponsorsStripe() {
                 src={sponsor.logo}
                 name={sponsor.name}
                 logoClassName={sponsor.logoClassName}
+                url={sponsor.url}
                 tilt={i % 2 === 0 ? "tilt-right" : "tilt-left"}
               />
             ))}

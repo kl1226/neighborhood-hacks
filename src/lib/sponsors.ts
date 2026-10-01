@@ -4,6 +4,7 @@ export type Sponsor = {
   contribution: string;
   logo?: string;
   logoClassName?: string;
+  url?: string;
 };
 
 export type Partner = {
@@ -59,6 +60,20 @@ export const sponsors: Sponsor[] = [
     contribution: "Momen: workshop and builder resources for participants",
     logo: "/sponsors/Momen-logo-2026.png",
     logoClassName: "!w-64 sm:!w-80 rounded-sm bg-off-white px-3 py-2",
+  },
+  {
+    name: "Deployxa",
+    tier: "supporting",
+    contribution: "Deployxa: infrastructure sponsor of Neighborhood Hacks",
+    logo: "/sponsors/deployxa-logo-dark.png",
+    url: "https://deployxa.com/",
+  },
+  {
+    name: "Agentboxd",
+    tier: "supporting",
+    contribution: "Agentboxd: builder access and a winning team prize",
+    logo: "/sponsors/agentboxd-logo-dark.png",
+    url: "https://agentboxd.com/",
   },
 ];
 
