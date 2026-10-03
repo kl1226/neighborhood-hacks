@@ -3,7 +3,6 @@ import SponsorsStripe from "@/components/SponsorsStripe";
 import { createPageMetadata } from "@/lib/seo";
 import {
   TOTAL_PRIZE_VALUE,
-  MOJOAUTH_SPONSOR_VALUE,
   BACKBOARD_WINNER_COUNT,
   FREE_DOMAIN_COUNT,
   FINALIST_COUNT,
@@ -25,17 +24,22 @@ const prizes = [
   {
     place: "🥇",
     title: "GRAND PRIZE",
-    cash: "$1,613",
+    value: "$5,372",
     winners: 1,
     items: [
       { label: "$125 in cash" },
+      { label: "Momen credits", note: "$2,000 worth" },
       {
         label: "MojoAuth one-year license",
         note: "$600 worth",
       },
       { label: "Formaloo paid workspace credits", note: "$500 worth" },
       { label: "Spine one-year professional license", note: "$379 worth" },
+      { label: "Mobbin Pro for three months", note: "$45 worth" },
       { label: "Pyxel Edit license", note: "$9 worth" },
+      { label: "Deployxa credits", note: "$1,000 worth" },
+      { label: "Deployxa Team access for six months", note: "$354 worth" },
+      { label: "Agentboxd Team plan for six months", note: "$360 worth" },
     ],
     certificate: "Neighborhood Hacks First Place Certificate",
     noCashFootnote: false,
@@ -44,7 +48,7 @@ const prizes = [
   {
     place: "🥈",
     title: "SECOND PLACE",
-    cash: "$1,134",
+    value: "$1,853",
     winners: 1,
     items: [
       { label: "$25 in cash" },
@@ -53,7 +57,10 @@ const prizes = [
         note: "$600 worth",
       },
       { label: "Formaloo paid workspace credits", note: "$500 worth" },
+      { label: "Mobbin Pro for three months", note: "$45 worth" },
       { label: "Pyxel Edit license", note: "$9 worth" },
+      { label: "Deployxa credits", note: "$500 worth" },
+      { label: "Deployxa Pro access for six months", note: "$174 worth" },
     ],
     certificate: "Neighborhood Hacks Second Place Certificate",
     noCashFootnote: false,
@@ -62,7 +69,7 @@ const prizes = [
   {
     place: "🥉",
     title: "THIRD PLACE",
-    cash: "$1,109",
+    value: "$1,578",
     winners: 1,
     items: [
       {
@@ -70,7 +77,10 @@ const prizes = [
         note: "$600 worth",
       },
       { label: "Formaloo paid workspace credits", note: "$500 worth" },
+      { label: "Mobbin Pro for three months", note: "$45 worth" },
       { label: "Pyxel Edit license", note: "$9 worth" },
+      { label: "Deployxa credits", note: "$250 worth" },
+      { label: "Deployxa Pro access for six months", note: "$174 worth" },
     ],
     certificate: "Neighborhood Hacks Third Place Certificate",
     noCashFootnote: true,
@@ -81,26 +91,28 @@ const prizes = [
 const categoryAwards = [
   {
     title: "MOST UNIQUE SOLUTION",
-    cash: "$609",
+    value: "$654",
     winners: 1,
     items: [
       {
         label: "MojoAuth one-year license",
         note: "$600 worth",
       },
+      { label: "Mobbin Pro for three months", note: "$45 worth" },
       { label: "Pyxel Edit license", note: "$9 worth" },
     ],
     noCashFootnote: true,
   },
   {
     title: "BEST TECHNICAL EXECUTION",
-    cash: "$609",
+    value: "$654",
     winners: 1,
     items: [
       {
         label: "MojoAuth one-year license",
         note: "$600 worth",
       },
+      { label: "Mobbin Pro for three months", note: "$45 worth" },
       { label: "Pyxel Edit license", note: "$9 worth" },
     ],
     noCashFootnote: true,
@@ -109,31 +121,59 @@ const categoryAwards = [
 
 const participantPrizes = [
   {
+    title: "MOMEN CREDITS",
+    value: "$135",
+    winners: "100",
+    description:
+      "All participants receive $135 in Momen credits and access to an optional Momen workshop.",
+    noCashFootnote: true,
+  },
+  {
+    title: "MOBBIN PRO AWARD",
+    value: "$45",
+    winners: "235",
+    description:
+      "The first 235 requests after the hackathon receive three months of Mobbin Pro.",
+    noCashFootnote: true,
+  },
+  {
+    title: "DEPLOYXA HOSTING AWARD",
+    value: "$27",
+    winners: "200",
+    description:
+      "Free hosting for participating teams during Neighborhood Hacks and for 90 days afterward, including databases, TLS, and custom domains. A Deployxa engineer will be available in Discord.",
+    noCashFootnote: true,
+  },
+  {
     title: "XYZ DOMAIN AWARDS",
-    cash: "$15",
+    value: "$15",
     winners: `${FREE_DOMAIN_COUNT}`,
     description:
-      "The first 100 requests after the hackathon receive a free .xyz domain for a year, no costs for a year. (≈$15 value each)",
+      "The first 100 requests after the hackathon receive a free .xyz domain for one year (about $15 value each).",
+    noCashFootnote: true,
+  },
+  {
+    title: "AGENTBOXD BUILDER PLAN AWARD",
+    value: "$15",
+    winners: "200",
+    description:
+      "Participants aged 16 or older receive 30 days of Agentboxd Builder.",
+    noCashFootnote: true,
+  },
+  {
+    title: "BACKBOARD DEVELOPER CREDITS",
+    value: "$10",
+    winners: `${BACKBOARD_WINNER_COUNT}`,
+    description:
+      "$10 in developer credits for Backboard's Unified API, Studio, R-CLI, and Terminal Bench, available to Neighborhood Hacks participants.",
     noCashFootnote: true,
   },
   {
     title: "FINALIST CERTIFICATION",
     winners: `${FINALIST_COUNT}`,
     description:
-      "The top 10 submissions receive an official Neighborhood Hacks Finalist Certificate",
+      "The top 10 submissions receive an official Neighborhood Hacks Finalist Certificate.",
     noCashFootnote: false,
-  },
-  {
-    title: "BACKBOARD DEVELOPER CREDITS",
-    cash: "$10",
-    winners: `${BACKBOARD_WINNER_COUNT}`,
-    description:
-      "$10 developer credits usable across Backboard's Unified API, Studio, R-CLI, and Terminal Bench. Available to all participants of Neighborhood Hacks. Use code: 'NEIGHBORHOODHACKS2026'",
-    noCashFootnote: true,
-    link: {
-      href: "https://app.backboard.io/hackathon",
-      label: "Sign up and redeem at app.backboard.io/hackathon",
-    },
   },
 ];
 
@@ -191,8 +231,16 @@ export default function Prizes() {
             ${TOTAL_PRIZE_VALUE.toLocaleString("en-US")}+
           </div>
           <p className="font-mono text-sm text-gray mt-3 max-w-md mx-auto font-semibold">
-            Our prizes are funded by our amazing sponsors — every dollar goes
-            straight back into the prizes you&apos;re competing for.
+            Combined cash and non-cash prize value, as listed on{" "}
+            <a
+              href="https://neighborhood-hacks-2026.devpost.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-accent underline"
+            >
+              Devpost
+            </a>
+            .
           </p>
         </div>
 
@@ -215,7 +263,10 @@ export default function Prizes() {
                   {prize.winners} WINNER{prize.winners === 1 ? "" : "S"}
                 </p>
                 <p className="font-display text-3xl font-bold text-accent mb-4">
-                  {prize.cash}
+                  {prize.value}
+                </p>
+                <p className="font-mono text-[11px] uppercase tracking-[0.15em] text-dim mb-4 font-semibold">
+                  PRIZE VALUE
                 </p>
                 <PrizeItems items={prize.items} />
                 <p className="font-mono text-sm text-gray italic text-center max-w-md mx-auto mb-4 font-semibold">
@@ -245,7 +296,7 @@ export default function Prizes() {
                   {award.winners} WINNER{award.winners === 1 ? "" : "S"}
                 </p>
                 <p className="font-mono text-sm text-accent font-semibold mb-3">
-                  {award.cash}
+                  {award.value} VALUE
                 </p>
                 <PrizeItems items={award.items} />
                 {award.noCashFootnote && <NoCashFootnote />}
@@ -271,24 +322,14 @@ export default function Prizes() {
                 <p className="font-mono text-[11px] uppercase tracking-[0.15em] text-dim mb-3 font-semibold">
                   {prize.winners} WINNERS
                 </p>
-                {prize.cash && (
+                {prize.value && (
                   <p className="font-mono text-sm text-accent font-semibold mb-3">
-                    {prize.cash}
+                    {prize.value} VALUE
                   </p>
                 )}
                 <p className="font-mono text-sm text-gray text-left max-w-md mx-auto mb-4 font-semibold">
                   {prize.description}
                 </p>
-                {prize.link && (
-                  <a
-                    href={prize.link.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="block font-mono text-sm text-accent underline [overflow-wrap:anywhere] mb-4 font-semibold"
-                  >
-                    {prize.link.label}
-                  </a>
-                )}
                 {prize.noCashFootnote && <NoCashFootnote />}
               </div>
             ))}
@@ -307,7 +348,7 @@ export default function Prizes() {
           <p className="font-mono text-base text-gray leading-relaxed max-w-2xl mb-8 font-semibold">
             Neighborhood Hacks is made possible by sponsors who believe in
             giving students the tools to solve problems in their own
-            communities. Our prizes are funded entirely by them — thank you!
+            communities. Their support makes these awards possible — thank you!
           </p>
 
           <SponsorsStripe />

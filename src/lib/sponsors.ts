@@ -19,7 +19,7 @@ export const sponsors: Sponsor[] = [
     name: "Backboard",
     tier: "supporting",
     contribution:
-      "Backboard: $10 developer credits for 500 winners, worth $5,000 in total",
+      "Backboard: $10 developer credits for 100 participants, worth $1,000 in total",
     logo: "/sponsors/backboard2.svg",
   },
   {
@@ -32,7 +32,7 @@ export const sponsors: Sponsor[] = [
   {
     name: "XYZ Domains",
     tier: "supporting",
-    contribution: "XYZ: 100 free domains for participating teams",
+    contribution: "XYZ: free one-year domains for the first 100 requests after the hackathon",
     logo: "/sponsors/xyz-logo-color.png",
   },
   {
@@ -57,7 +57,7 @@ export const sponsors: Sponsor[] = [
   {
     name: "Momen",
     tier: "supporting",
-    contribution: "Momen: workshop and builder resources for participants",
+    contribution: "Momen: grand prize credits, participant credits, and an optional workshop",
     logo: "/sponsors/Momen-logo-2026.png",
     logoClassName: "!w-64 sm:!w-80 rounded-sm bg-off-white px-3 py-2",
   },
@@ -86,21 +86,8 @@ export const partners: Partner[] = [
   },
 ];
 
-export const DOMAIN_SPONSOR_VALUE = 1500;
-export const MOJOAUTH_SPONSOR_VALUE = 3000;
-export const FORMALOO_SPONSOR_VALUE = 1500;
-export const SPINE_SPONSOR_VALUE = 379;
-export const PYXEL_EDIT_SPONSOR_VALUE = 45;
-export const CASH_PRIZE_VALUE = 150;
-export const BACKBOARD_SPONSOR_VALUE = 5000;
-export const BACKBOARD_WINNER_COUNT = 500;
+// Devpost's published prize values include cash and non-cash awards.
+export const TOTAL_PRIZE_VALUE = 45086;
+export const BACKBOARD_WINNER_COUNT = 100;
 export const FREE_DOMAIN_COUNT = 100;
 export const FINALIST_COUNT = 10;
-export const TOTAL_PRIZE_VALUE =
-  DOMAIN_SPONSOR_VALUE +
-  MOJOAUTH_SPONSOR_VALUE +
-  FORMALOO_SPONSOR_VALUE +
-  SPINE_SPONSOR_VALUE +
-  PYXEL_EDIT_SPONSOR_VALUE +
-  CASH_PRIZE_VALUE +
-  BACKBOARD_SPONSOR_VALUE;
