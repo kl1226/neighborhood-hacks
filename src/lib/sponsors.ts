@@ -75,6 +75,20 @@ export const sponsors: Sponsor[] = [
     logo: "/sponsors/agentboxd-logo-dark.png",
     url: "https://agentboxd.com/",
   },
+  {
+    name: "DevSwarm",
+    tier: "supporting",
+    contribution: "DevSwarm: Pro subscriptions for winners and participants",
+    logo: "/sponsors/devswarm-sponsor.png",
+    url: "https://devswarm.ai/",
+  },
+  {
+    name: "Wasmer",
+    tier: "supporting",
+    contribution: "Wasmer: hosting credits and Pro subscriptions for winners and participants",
+    logo: "/sponsors/wasmer-logo-white.png",
+    url: "https://wasmer.io/",
+  },
 ];
 
 export const partners: Partner[] = [
@@ -87,7 +101,7 @@ export const partners: Partner[] = [
 ];
 
 // Devpost's published prize values include cash and non-cash awards.
-export const TOTAL_PRIZE_VALUE = 45086;
+export const TOTAL_PRIZE_VALUE = 60866;
 export const BACKBOARD_WINNER_COUNT = 100;
 export const FREE_DOMAIN_COUNT = 100;
 export const FINALIST_COUNT = 10;

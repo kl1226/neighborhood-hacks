@@ -24,7 +24,7 @@ const prizes = [
   {
     place: "🥇",
     title: "GRAND PRIZE",
-    value: "$5,372",
+    value: "$10,468",
     winners: 1,
     items: [
       { label: "$125 in cash" },
@@ -40,6 +40,9 @@ const prizes = [
       { label: "Deployxa credits", note: "$1,000 worth" },
       { label: "Deployxa Team access for six months", note: "$354 worth" },
       { label: "Agentboxd Team plan for six months", note: "$360 worth" },
+      { label: "DevSwarm Pro one-year subscription", note: "$96 worth" },
+      { label: "Wasmer hosting credits", note: "$5,000 worth" },
+      { label: "Wasmer Pro one-year subscription", note: "$120 worth per winning participant" },
     ],
     certificate: "Neighborhood Hacks First Place Certificate",
     noCashFootnote: false,
@@ -48,7 +51,7 @@ const prizes = [
   {
     place: "🥈",
     title: "SECOND PLACE",
-    value: "$1,853",
+    value: "$4,449",
     winners: 1,
     items: [
       { label: "$25 in cash" },
@@ -61,6 +64,9 @@ const prizes = [
       { label: "Pyxel Edit license", note: "$9 worth" },
       { label: "Deployxa credits", note: "$500 worth" },
       { label: "Deployxa Pro access for six months", note: "$174 worth" },
+      { label: "DevSwarm Pro one-year subscription", note: "$96 worth" },
+      { label: "Wasmer hosting credits", note: "$2,500 worth" },
+      { label: "Wasmer Pro one-year subscription", note: "$120 worth per winning participant" },
     ],
     certificate: "Neighborhood Hacks Second Place Certificate",
     noCashFootnote: false,
@@ -69,7 +75,7 @@ const prizes = [
   {
     place: "🥉",
     title: "THIRD PLACE",
-    value: "$1,578",
+    value: "$2,674",
     winners: 1,
     items: [
       {
@@ -81,6 +87,9 @@ const prizes = [
       { label: "Pyxel Edit license", note: "$9 worth" },
       { label: "Deployxa credits", note: "$250 worth" },
       { label: "Deployxa Pro access for six months", note: "$174 worth" },
+      { label: "DevSwarm Pro one-year subscription", note: "$96 worth" },
+      { label: "Wasmer hosting credits", note: "$1,000 worth" },
+      { label: "Wasmer Pro one-year subscription", note: "$120 worth per winning participant" },
     ],
     certificate: "Neighborhood Hacks Third Place Certificate",
     noCashFootnote: true,
@@ -91,7 +100,7 @@ const prizes = [
 const categoryAwards = [
   {
     title: "MOST UNIQUE SOLUTION",
-    value: "$654",
+    value: "$750",
     winners: 1,
     items: [
       {
@@ -100,12 +109,14 @@ const categoryAwards = [
       },
       { label: "Mobbin Pro for three months", note: "$45 worth" },
       { label: "Pyxel Edit license", note: "$9 worth" },
+      { label: "DevSwarm Pro one-year subscription", note: "$96 worth" },
+      { label: "Wasmer Pro one-year subscription", note: "$120 worth per winning participant" },
     ],
     noCashFootnote: true,
   },
   {
     title: "BEST TECHNICAL EXECUTION",
-    value: "$654",
+    value: "$750",
     winners: 1,
     items: [
       {
@@ -114,12 +125,22 @@ const categoryAwards = [
       },
       { label: "Mobbin Pro for three months", note: "$45 worth" },
       { label: "Pyxel Edit license", note: "$9 worth" },
+      { label: "DevSwarm Pro one-year subscription", note: "$96 worth" },
+      { label: "Wasmer Pro one-year subscription", note: "$120 worth per winning participant" },
     ],
     noCashFootnote: true,
   },
 ];
 
 const participantPrizes = [
+  {
+    title: "WASMER PRO AWARD",
+    value: "$30",
+    winners: "200",
+    description:
+      "Every participant receives three months of Wasmer Pro ($30 worth per person).",
+    noCashFootnote: true,
+  },
   {
     title: "MOMEN CREDITS",
     value: "$135",
@@ -166,6 +187,14 @@ const participantPrizes = [
     winners: `${BACKBOARD_WINNER_COUNT}`,
     description:
       "$10 in developer credits for Backboard's Unified API, Studio, R-CLI, and Terminal Bench, available to Neighborhood Hacks participants.",
+    noCashFootnote: true,
+  },
+  {
+    title: "DEVSWARM PRO AWARD",
+    value: "$8",
+    winners: "100",
+    description:
+      "Participants receive one month of DevSwarm Pro ($8 worth).",
     noCashFootnote: true,
   },
   {
