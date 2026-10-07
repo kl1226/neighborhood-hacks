@@ -42,7 +42,7 @@ const prizes = [
       { label: "Agentboxd Team plan for six months", note: "$360 worth" },
       { label: "DevSwarm Pro one-year subscription", note: "$96 worth" },
       { label: "Wasmer hosting credits", note: "$5,000 worth" },
-      { label: "Wasmer Pro one-year subscription", note: "$120 worth per winning participant" },
+      { label: "Wasmer Pro one-year subscription", note: "$120" },
     ],
     certificate: "Neighborhood Hacks First Place Certificate",
     noCashFootnote: false,
@@ -66,7 +66,7 @@ const prizes = [
       { label: "Deployxa Pro access for six months", note: "$174 worth" },
       { label: "DevSwarm Pro one-year subscription", note: "$96 worth" },
       { label: "Wasmer hosting credits", note: "$2,500 worth" },
-      { label: "Wasmer Pro one-year subscription", note: "$120 worth per winning participant" },
+      { label: "Wasmer Pro one-year subscription", note: "$120" },
     ],
     certificate: "Neighborhood Hacks Second Place Certificate",
     noCashFootnote: false,
@@ -89,7 +89,7 @@ const prizes = [
       { label: "Deployxa Pro access for six months", note: "$174 worth" },
       { label: "DevSwarm Pro one-year subscription", note: "$96 worth" },
       { label: "Wasmer hosting credits", note: "$1,000 worth" },
-      { label: "Wasmer Pro one-year subscription", note: "$120 worth per winning participant" },
+      { label: "Wasmer Pro one-year subscription", note: "$120" },
     ],
     certificate: "Neighborhood Hacks Third Place Certificate",
     noCashFootnote: true,
@@ -133,14 +133,6 @@ const categoryAwards = [
 ];
 
 const participantPrizes = [
-  {
-    title: "WASMER PRO AWARD",
-    value: "$30",
-    winners: "200",
-    description:
-      "Every participant receives three months of Wasmer Pro ($30 worth per person).",
-    noCashFootnote: true,
-  },
   {
     title: "MOMEN CREDITS",
     value: "$135",
@@ -195,6 +187,13 @@ const participantPrizes = [
     winners: "100",
     description:
       "Participants receive one month of DevSwarm Pro ($8 worth).",
+    noCashFootnote: true,
+  },
+  {
+    title: "WASMER PRO AWARD",
+    value: "$30",
+    winners: "100",
+    description: "All participants receive Wasmer Pro for three months ($30).",
     noCashFootnote: true,
   },
   {

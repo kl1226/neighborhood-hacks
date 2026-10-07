@@ -101,7 +101,7 @@ export const partners: Partner[] = [
 ];
 
 // Devpost's published prize values include cash and non-cash awards.
-export const TOTAL_PRIZE_VALUE = 60866;
+export const TOTAL_PRIZE_VALUE = 57866;
 export const BACKBOARD_WINNER_COUNT = 100;
 export const FREE_DOMAIN_COUNT = 100;
 export const FINALIST_COUNT = 10;
