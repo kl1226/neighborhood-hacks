@@ -197,6 +197,15 @@ const participantPrizes = [
     noCashFootnote: true,
   },
   {
+    title: "RISE RESEARCH DISCOUNT",
+    value: "$250",
+    valueLabel: "DISCOUNT",
+    winnerLabel: "ALL PARTICIPANTS",
+    description:
+      "$250 off the RISE education research program for all participants.",
+    noCashFootnote: true,
+  },
+  {
     title: "FINALIST CERTIFICATION",
     winners: `${FINALIST_COUNT}`,
     description:
@@ -348,11 +357,11 @@ export default function Prizes() {
                   {prize.title}
                 </h3>
                 <p className="font-mono text-[11px] uppercase tracking-[0.15em] text-dim mb-3 font-semibold">
-                  {prize.winners} WINNERS
+                  {prize.winnerLabel ?? `${prize.winners} WINNERS`}
                 </p>
                 {prize.value && (
                   <p className="font-mono text-sm text-accent font-semibold mb-3">
-                    {prize.value} VALUE
+                    {prize.value} {prize.valueLabel ?? "VALUE"}
                   </p>
                 )}
                 <p className="font-mono text-sm text-gray text-left max-w-md mx-auto mb-4 font-semibold">

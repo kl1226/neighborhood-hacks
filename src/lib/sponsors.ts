@@ -89,6 +89,13 @@ export const sponsors: Sponsor[] = [
     logo: "/sponsors/wasmer-logo-white.png",
     url: "https://wasmer.io/",
   },
+  {
+    name: "RISE Research",
+    tier: "supporting",
+    contribution: "RISE Research: $250 program discount for all participants",
+    logo: "/sponsors/rise-logo-white.png",
+    url: "https://riseglobaleducation.com/",
+  },
 ];
 
 export const partners: Partner[] = [
