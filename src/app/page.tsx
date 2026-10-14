@@ -48,7 +48,7 @@ export default function Home() {
             every continent design and build solutions to challenges in their
             own communities. There are no skill requirements, and anyone in
             high school is welcome to join. This competition runs from October
-            16–24, 2026.
+            16–23, 2026.
           </p>
 
           {/* CTAs — rough-bordered buttons */}
