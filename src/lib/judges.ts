@@ -96,4 +96,10 @@ export const judgePanelists: Judge[] = [
     company: "Carnegie Mellon University — School of Computer Science and Humanities",
     image: "/judges/EunbeanLee.jpeg",
   },
+  {
+    name: "Kavitha Gopalakrishnan",
+    title: "Senior Product Manager",
+    company: "Google Labs",
+    image: "/judges/Kavitha-Gopalakrishnan.png",
+  },
 ];
