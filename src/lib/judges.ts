@@ -102,4 +102,10 @@ export const judgePanelists: Judge[] = [
     company: "Google Labs",
     image: "/judges/Kavitha-Gopalakrishnan.png",
   },
+  {
+    name: "Samridhi Wadhwa",
+    title: "Senior Engineering Manager",
+    company: "Best Buy",
+    image: "/judges/Samridhi-Wadhwa.jpg",
+  },
 ];
