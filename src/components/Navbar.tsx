@@ -10,6 +10,7 @@ const navLinks = [
   { href: "/timeline", label: "TIMELINE" },
   { href: "/judging", label: "JUDGING" },
   { href: "/prizes", label: "PRIZES" },
+  { href: "/results", label: "MY RESULTS" },
   { href: "/rules", label: "RULES" },
   { href: "/faq", label: "FAQ" },
 ];
@@ -36,7 +37,7 @@ export default function Navbar() {
           </Link>
 
           {/* Desktop nav links */}
-          <div className="hidden lg:flex items-center gap-1">
+          <div className="hidden xl:flex items-center gap-1">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
@@ -69,8 +70,11 @@ export default function Navbar() {
 
             {/* Mobile menu button */}
             <button
+              type="button"
+              aria-expanded={isOpen}
+              aria-controls="mobile-navigation"
               onClick={() => setIsOpen(!isOpen)}
-              className="inline-flex min-h-11 items-center px-2 lg:hidden font-mono text-[10px] uppercase tracking-[0.15em] text-gray hover:text-accent transition-colors font-semibold"
+              className="inline-flex min-h-11 items-center px-2 xl:hidden font-mono text-[10px] uppercase tracking-[0.15em] text-gray hover:text-accent transition-colors font-semibold"
             >
               [{isOpen ? "CLOSE" : "MENU"}]
             </button>
@@ -80,7 +84,7 @@ export default function Navbar() {
 
       {/* Mobile dropdown nav */}
       {isOpen && (
-        <div className="fixed top-14 bottom-0 left-0 right-0 z-40 overflow-y-auto bg-near-black/98 backdrop-blur-sm border-b border-grid lg:hidden">
+        <div id="mobile-navigation" className="fixed top-14 bottom-0 left-0 right-0 z-40 overflow-y-auto bg-near-black/98 backdrop-blur-sm border-b border-grid xl:hidden">
           <nav className="max-w-7xl mx-auto px-4 sm:px-8 py-6">
             <div className="space-y-3">
               {navLinks.map((link, i) => (

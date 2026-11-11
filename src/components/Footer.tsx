@@ -2,6 +2,7 @@ import Link from "next/link";
 import { sponsors } from "@/lib/sponsors";
 
 const footerLinks = [
+  { href: "/results", label: "FEEDBACK & CERTIFICATES" },
   { href: "/prizes", label: "PRIZES" },
   { href: "/code-of-conduct", label: "CODE_OF_CONDUCT" },
   { href: "/faq", label: "FAQ" },

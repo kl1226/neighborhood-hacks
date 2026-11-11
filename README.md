@@ -133,6 +133,22 @@ npm run build
 npx serve out
 ```
 
+## Participant feedback
+
+`/results/` lets participants look up initial-round written feedback with their
+Devpost registration email. Certificates currently show a coming-soon placeholder.
+
+The page calls a separately deployed results API; participant records are never
+included in this site's source or static export. The API requires an automatic
+browser challenge and applies server-side lookup limits. Email-only access is an
+intentional choice for this event.
+
+For local development, copy `.env.example` to `.env.local`. For GitHub Pages,
+set the repository variable `RESULTS_API_URL` to the complete lookup endpoint.
+The workflow builds the page with proof-of-work protection enabled. To use
+Turnstile instead, configure both the public site key and matching backend secret,
+and set the frontend/backend protection modes together.
+
 ## Color Palette
 
 | Name | Hex | Use |
