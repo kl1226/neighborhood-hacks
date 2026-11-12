@@ -138,6 +138,11 @@ npx serve out
 `/results/` lets participants look up initial-round written feedback with their
 Devpost registration email. Certificates currently show a coming-soon placeholder.
 
+Results distinguish registration without a submission, submissions that did not
+advance past screening, and projects that passed screening without written judge
+comments. The registration hint and contact link appear only when a lookup finds
+no feedback.
+
 The page calls a separately deployed results API; participant records are never
 included in this site's source or static export. The API requires an automatic
 browser challenge and applies server-side lookup limits. Email-only access is an

@@ -16,14 +16,11 @@ export default function ResultsPage() {
         <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-gray mb-6 font-semibold">
           NEIGHBORHOOD HACKS 2026 / YOUR RESULTS
         </p>
-        <h1 className="font-display text-4xl sm:text-6xl lg:text-7xl font-bold text-off-white leading-none">
+        <h1 className="font-display text-4xl sm:text-6xl lg:text-7xl font-bold text-off-white leading-none mb-6">
           FEEDBACK &amp;
           <br />
           CERTIFICATES
         </h1>
-        <p className="font-hand text-2xl text-accent mt-4 mb-8 tilt-left">
-          a little reflection, a lot to build on
-        </p>
         <p className="font-mono text-sm sm:text-base text-gray leading-relaxed max-w-2xl mb-10 font-semibold">
           Enter the email you used on Devpost to find your project&apos;s
           initial-round feedback. Participation certificates will be added here

@@ -117,12 +117,43 @@ function browserChallengeEndpoint(endpoint: string): string {
   return url.href;
 }
 
+function projectReviewState(project: Project): { heading: string; description: string } {
+  if (project.feedback.length > 0) {
+    return {
+      heading: "Submitted · Reviewed",
+      description: "Your project was submitted and reviewed in the initial round.",
+    };
+  }
+  if (project.status === "screening_failed") {
+    return {
+      heading: "Did not advance past screening",
+      description:
+        "Your project was submitted but did not advance to initial-round judging, so no initial-round judge feedback is available.",
+    };
+  }
+  if (project.status === "reviewed_without_feedback") {
+    return {
+      heading: "Passed screening · No written feedback recorded",
+      description:
+        "Your project passed screening and was included in the initial-round judging list, but no written judge comments were recorded.",
+    };
+  }
+  return {
+    heading: "Project submitted",
+    description:
+      "Your project was submitted. No initial-round feedback was recorded.",
+  };
+}
+
 export default function ResultsLookup() {
   const [email, setEmail] = useState("");
   const [result, setResult] = useState<Results | null>(null);
   const [error, setError] = useState("");
+  const [noMatch, setNoMatch] = useState(false);
   const [phase, setPhase] = useState<"idle" | "checking" | "lookup">("idle");
   const busy = phase !== "idle";
+  const hasFeedback = result?.projects.some((project) => project.feedback.length > 0) ?? false;
+  const showNoFeedbackHelp = !busy && (noMatch || Boolean(result && !hasFeedback));
   const [scriptReady, setScriptReady] = useState(false);
   const [challengeToken, setChallengeToken] = useState("");
   const [challengeError, setChallengeError] = useState(false);
@@ -195,6 +226,7 @@ export default function ResultsLookup() {
 
     setPhase(usesTurnstile ? "lookup" : "checking");
     setError("");
+    setNoMatch(false);
     const token = challengeToken;
     setChallengeToken("");
     const controller = new AbortController();
@@ -241,9 +273,8 @@ export default function ResultsLookup() {
       if (!mounted.current || controller.signal.aborted) return;
 
       if (response.status === 404) {
-        setError(
-          "We couldn’t find results for that email. Check the address you used on Devpost and try again.",
-        );
+        setNoMatch(true);
+        setError("No registration found for this email.");
       } else if (response.status === 429) {
         setError("Too many lookups. Please wait a few minutes and try again.");
       } else if (response.status === 400 || response.status === 403) {
@@ -281,6 +312,7 @@ export default function ResultsLookup() {
     setResult(null);
     setEmail("");
     setError("");
+    setNoMatch(false);
     setChallengeToken("");
     setChallengeError(false);
     window.requestAnimationFrame(() => emailInput.current?.focus());
@@ -335,17 +367,16 @@ export default function ResultsLookup() {
               onChange={(event) => {
                 setEmail(event.target.value);
                 setError("");
+                setNoMatch(false);
               }}
               disabled={busy || !isConfigured}
-              aria-describedby={`results-email-help${error ? " results-error" : ""}`}
+              aria-describedby={[
+                showNoFeedbackHelp ? "results-email-help" : "",
+                error ? "results-error" : "",
+              ].filter(Boolean).join(" ") || undefined}
               className="w-full min-w-0 border border-gray bg-near-black px-4 py-3 font-mono text-base text-off-white placeholder:text-dim focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-4 disabled:opacity-50"
               placeholder="you@example.com"
             />
-            <p id="results-email-help" className="font-mono text-xs text-gray mt-3 leading-relaxed">
-              Use the email linked to your Devpost registration. No account or
-              email verification needed.
-            </p>
-
             {isConfigured && usesTurnstile && (
               <div className="my-6">
                 <div ref={challengeContainer} />
@@ -405,10 +436,11 @@ export default function ResultsLookup() {
             <div className="space-y-8">
               {result.projects.map((project) => {
                 const projectUrl = safeProjectUrl(project.url);
+                const reviewState = projectReviewState(project);
                 return (
                   <article key={project.id} className="rough-border p-5 sm:p-8">
                     <p className="font-mono text-[11px] uppercase tracking-[0.15em] text-accent mb-3 font-semibold">
-                      INITIAL-ROUND FEEDBACK
+                      {reviewState.heading}
                     </p>
                     <h3 className="font-display text-2xl sm:text-3xl font-bold text-off-white break-words">
                       {project.title}
@@ -419,8 +451,15 @@ export default function ResultsLookup() {
                       </a>
                     )}
 
+                    <p className="font-mono text-sm text-gray leading-relaxed mt-5">
+                      {reviewState.description}
+                    </p>
+
                     {project.feedback.length ? (
                       <div className="mt-6 space-y-6">
+                        <h4 className="font-display text-lg font-bold text-off-white">
+                          INITIAL-ROUND FEEDBACK
+                        </h4>
                         {project.feedback.map((feedback, index) => (
                           <div key={index} className="border-t border-grid pt-5">
                             <p className="font-mono text-[11px] uppercase tracking-[0.12em] text-gray mb-3 font-semibold">
@@ -432,21 +471,21 @@ export default function ResultsLookup() {
                           </div>
                         ))}
                       </div>
-                    ) : (
-                      <p className="font-mono text-sm text-gray leading-relaxed mt-6">
-                        No written initial-round feedback is available for this
-                        project.
-                      </p>
-                    )}
+                    ) : null}
                   </article>
                 );
               })}
             </div>
           ) : (
-            <p className="rough-border p-5 sm:p-8 font-mono text-sm text-gray leading-relaxed">
-              We found your registration, but there isn&apos;t any project
-              feedback linked to it yet.
-            </p>
+            <div className="rough-border p-5 sm:p-8">
+              <h3 className="font-display text-2xl font-bold text-off-white mb-3">
+                Registered · No project submitted
+              </h3>
+              <p className="font-mono text-sm text-gray leading-relaxed">
+                We found your registration, but no submitted project is linked
+                to it, so there is no judging feedback.
+              </p>
+            </div>
           )}
 
           <section aria-labelledby="certificate-title" className="paper-cut p-7 sm:p-10 mt-10">
@@ -467,13 +506,21 @@ export default function ResultsLookup() {
         </div>
       )}
 
-      <p className="font-mono text-xs text-gray leading-relaxed mt-8 max-w-2xl">
-        Having trouble finding your feedback? Contact{" "}
-        <a href="mailto:contact@neighborhoodhacks.org" className="text-off-white underline underline-offset-4 hover:text-accent [overflow-wrap:anywhere] focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-4">
-          contact@neighborhoodhacks.org
-        </a>
-        .
-      </p>
+      {showNoFeedbackHelp && (
+        <div className="font-mono text-xs text-gray leading-relaxed mt-8 max-w-2xl space-y-3">
+          <p id="results-email-help">
+            Use the email linked to your Devpost registration. No account or
+            email verification needed.
+          </p>
+          <p>
+            Having trouble finding your feedback? Contact{" "}
+            <a href="mailto:contact@neighborhoodhacks.org" className="text-off-white underline underline-offset-4 hover:text-accent [overflow-wrap:anywhere] focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-4">
+              contact@neighborhoodhacks.org
+            </a>
+            .
+          </p>
+        </div>
+      )}
     </>
   );
 }
