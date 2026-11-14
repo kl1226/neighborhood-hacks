@@ -49,12 +49,6 @@ export const judgePanelists: Judge[] = [
     image: "/judges/GayathrioChilukala.png",
   },
   {
-    name: "Nikhil Singh",
-    title: "Lead Software Engineer",
-    company: "US Bank",
-    image: "/judges/NikhilHeadshot.png",
-  },
-  {
     name: "Sai Prasad Saladi",
     title: "Senior Software Engineer",
     company: "US Bank",
