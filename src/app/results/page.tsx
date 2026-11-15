@@ -4,7 +4,7 @@ import ResultsLookup from "./results-lookup";
 export const metadata = createPageMetadata({
   title: "Feedback & Certificates | Neighborhood Hacks 2026",
   description:
-    "Find your Neighborhood Hacks initial-round feedback using the email you registered with on Devpost.",
+    "Find your Neighborhood Hacks initial-round and finalist-round feedback, and download your participation certificate using your Devpost registration email.",
   path: "/results",
   index: false,
 });
@@ -22,9 +22,9 @@ export default function ResultsPage() {
           CERTIFICATES
         </h1>
         <p className="font-mono text-sm sm:text-base text-gray leading-relaxed max-w-2xl mb-10 font-semibold">
-          Enter the email you used on Devpost to find your project&apos;s
-          initial-round feedback. Participation certificates will be added here
-          later.
+          Enter the email you used on Devpost to view your project&apos;s
+          initial-round feedback, finalist-round feedback where available, and
+          download your participation certificate if you submitted a project.
         </p>
         <ResultsLookup />
       </div>

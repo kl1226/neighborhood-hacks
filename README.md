@@ -135,18 +135,20 @@ npx serve out
 
 ## Participant feedback
 
-`/results/` lets participants look up initial-round written feedback with their
-Devpost registration email. Certificates currently show a coming-soon placeholder.
+`/results/` lets participants look up initial-round and finalist-round written
+feedback with their Devpost registration email. People who submitted a project,
+including team members, can download their participation certificate.
 
 Results distinguish registration without a submission, submissions that did not
 advance past screening, and projects that passed screening without written judge
 comments. The registration hint and contact link appear only when a lookup finds
 no feedback.
 
-The page calls a separately deployed results API; participant records are never
-included in this site's source or static export. The API requires an automatic
-browser challenge and applies server-side lookup limits. Email-only access is an
-intentional choice for this event.
+The page calls a separately deployed results API; participant records and PDFs
+are never included in this site's source or static export. Certificate files
+stay in private storage and are served through short-lived download links. The
+API requires an automatic browser challenge and applies server-side lookup
+limits. Email-only access is an intentional choice for this event.
 
 For local development, copy `.env.example` to `.env.local`. For GitHub Pages,
 set the repository variable `RESULTS_API_URL` to the complete lookup endpoint.

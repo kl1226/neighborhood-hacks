@@ -3,20 +3,8 @@
 import Script from "next/script";
 import { useEffect, useRef, useState, type FormEvent } from "react";
 import { BrowserProofError, solveBrowserProof, type BrowserProof } from "./browser-proof";
-
-type Feedback = { judge?: string; comment: string };
-type Project = {
-  id: string;
-  title: string;
-  url?: string;
-  feedback: Feedback[];
-  status?: string;
-};
-type Results = {
-  participant: { name: string };
-  projects: Project[];
-  certificate: { status: "pending" };
-};
+import CertificatePanel from "./certificate-panel";
+import { readResults, type Project, type Results } from "./result-data";
 type TurnstileApi = {
   render: (
     container: HTMLElement,
@@ -40,60 +28,6 @@ const isConfigured = Boolean(lookupEndpoint && (!usesTurnstile || siteKey));
 
 function turnstile() {
   return (window as Window & { turnstile?: TurnstileApi }).turnstile;
-}
-
-function isRecord(value: unknown): value is Record<string, unknown> {
-  return typeof value === "object" && value !== null && !Array.isArray(value);
-}
-
-function readResults(value: unknown): Results | null {
-  if (
-    !isRecord(value) ||
-    !isRecord(value.participant) ||
-    typeof value.participant.name !== "string" ||
-    !Array.isArray(value.projects) ||
-    !isRecord(value.certificate) ||
-    value.certificate.status !== "pending"
-  ) {
-    return null;
-  }
-
-  const projects: Project[] = [];
-  for (const project of value.projects) {
-    if (
-      !isRecord(project) ||
-      typeof project.id !== "string" ||
-      typeof project.title !== "string" ||
-      !Array.isArray(project.feedback)
-    ) {
-      return null;
-    }
-    const feedback: Feedback[] = [];
-    for (const entry of project.feedback) {
-      if (!isRecord(entry) || typeof entry.comment !== "string") return null;
-      if (entry.comment.trim()) {
-        feedback.push({
-          comment: entry.comment,
-          ...(typeof entry.judge === "string" && entry.judge.trim()
-            ? { judge: entry.judge }
-            : {}),
-        });
-      }
-    }
-    projects.push({
-      id: project.id,
-      title: project.title,
-      feedback,
-      ...(typeof project.url === "string" ? { url: project.url } : {}),
-      ...(typeof project.status === "string" ? { status: project.status } : {}),
-    });
-  }
-
-  return {
-    participant: { name: value.participant.name },
-    projects,
-    certificate: { status: "pending" },
-  };
 }
 
 function safeProjectUrl(url?: string): string | undefined {
@@ -133,9 +67,9 @@ function projectReviewState(project: Project): { heading: string; description: s
   }
   if (project.status === "reviewed_without_feedback") {
     return {
-      heading: "Passed screening · No written feedback recorded",
+      heading: "Passed screening · No initial-round feedback recorded",
       description:
-        "Your project passed screening and was included in the initial-round judging list, but no written judge comments were recorded.",
+        "Your project passed screening and was included in the initial-round judging list, but no written initial-round judge comments were recorded.",
     };
   }
   return {
@@ -152,7 +86,9 @@ export default function ResultsLookup() {
   const [noMatch, setNoMatch] = useState(false);
   const [phase, setPhase] = useState<"idle" | "checking" | "lookup">("idle");
   const busy = phase !== "idle";
-  const hasFeedback = result?.projects.some((project) => project.feedback.length > 0) ?? false;
+  const hasFeedback = result?.projects.some(
+    (project) => project.feedback.length > 0 || project.finalFeedback.length > 0,
+  ) ?? false;
   const showNoFeedbackHelp = !busy && (noMatch || Boolean(result && !hasFeedback));
   const [scriptReady, setScriptReady] = useState(false);
   const [challengeToken, setChallengeToken] = useState("");
@@ -334,7 +270,7 @@ export default function ResultsLookup() {
         <div className="rough-border p-5 sm:p-8 max-w-2xl">
           <div className="flex items-start justify-between gap-4 mb-6">
             <h2 className="font-display text-2xl font-bold text-off-white">
-              FIND YOUR FEEDBACK
+              FIND YOUR RESULTS
             </h2>
             <span aria-hidden="true" className="font-hand text-2xl text-accent tilt-right">
               for you ↙
@@ -344,7 +280,7 @@ export default function ResultsLookup() {
           {!isConfigured && (
             <p role="status" className="font-mono text-sm text-off-white bg-grid p-4 mb-6 leading-relaxed">
               Results lookup is coming soon. Please check back here for your
-              feedback.
+              results.
             </p>
           )}
 
@@ -407,8 +343,8 @@ export default function ResultsLookup() {
               {phase === "checking"
                 ? "CHECKING YOUR BROWSER…"
                 : phase === "lookup"
-                  ? "FINDING YOUR FEEDBACK…"
-                  : "VIEW MY FEEDBACK →"}
+                  ? "FINDING YOUR RESULTS…"
+                  : "VIEW MY RESULTS →"}
             </button>
           </form>
         </div>
@@ -417,7 +353,7 @@ export default function ResultsLookup() {
           <div className="border-t-2 border-off-white pt-6 mb-8 flex flex-col sm:flex-row sm:items-start sm:justify-between gap-5">
             <div>
               <p className="font-mono text-[11px] uppercase tracking-[0.15em] text-gray mb-2 font-semibold">
-                YOUR NEIGHBORHOOD HACKS FEEDBACK
+                YOUR NEIGHBORHOOD HACKS RESULTS
               </p>
               <h2 ref={resultHeading} tabIndex={-1} className="font-display text-3xl sm:text-4xl font-bold text-off-white break-words focus:outline-none">
                 {result.participant.name || "YOUR RESULTS"}
@@ -472,6 +408,29 @@ export default function ResultsLookup() {
                         ))}
                       </div>
                     ) : null}
+
+                    {project.isFinalist || project.finalFeedback.length > 0 ? (
+                      <div className="mt-8 border-t-2 border-accent pt-6 space-y-6">
+                        <h4 className="font-display text-lg font-bold text-off-white">
+                          FINALIST-ROUND FEEDBACK
+                        </h4>
+                        {project.finalFeedback.length > 0 ? project.finalFeedback.map((feedback, index) => (
+                          <div key={index} className="border-t border-grid pt-5">
+                            <p className="font-mono text-[11px] uppercase tracking-[0.12em] text-gray mb-3 font-semibold">
+                              {feedback.judge || (project.finalFeedback.length > 1 ? `REVIEW ${index + 1}` : "REVIEWER FEEDBACK")}
+                            </p>
+                            <p className="font-mono text-sm sm:text-base text-off-white leading-relaxed whitespace-pre-wrap [overflow-wrap:anywhere]">
+                              {feedback.comment}
+                            </p>
+                          </div>
+                        )) : (
+                          <p className="font-mono text-sm text-gray leading-relaxed">
+                            No written final-round comments were recorded for
+                            this project.
+                          </p>
+                        )}
+                      </div>
+                    ) : null}
                   </article>
                 );
               })}
@@ -488,21 +447,11 @@ export default function ResultsLookup() {
             </div>
           )}
 
-          <section aria-labelledby="certificate-title" className="paper-cut p-7 sm:p-10 mt-10">
-            <p className="font-mono text-[11px] uppercase tracking-[0.15em] text-near-black/60 mb-3 font-semibold">
-              COMING LATER
-            </p>
-            <h3 id="certificate-title" className="font-display text-2xl font-bold text-near-black mb-3">
-              CERTIFICATE OF PARTICIPATION
-            </h3>
-            <p className="font-mono text-sm text-near-black/80 leading-relaxed max-w-xl font-semibold">
-              Certificates aren&apos;t ready yet. When they&apos;re available,
-              you&apos;ll be able to find yours here.
-            </p>
-            <p className="font-hand text-xl text-near-black/70 mt-5 tilt-left">
-              a spot saved for your hard work
-            </p>
-          </section>
+          <CertificatePanel
+            certificate={result.certificate}
+            hasSubmission={result.projects.length > 0}
+            onLookupAgain={startAgain}
+          />
         </div>
       )}
 
